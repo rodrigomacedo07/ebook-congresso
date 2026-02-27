@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { captureLead } from '@/actions/leads';
-import { BookOpen, Loader2 } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
+import Image from 'next/image'; 
 
 export default function LandingPage() {
   const router = useRouter();
@@ -35,7 +36,13 @@ export default function LandingPage() {
         
         {/* Cabeçalho Visual (Alinhado à marca do Dr. Mauro) */}
         <div className="bg-[#0D2A4B] p-6 text-center text-white">
-          <BookOpen className="w-12 h-12 mx-auto mb-3 text-[#2E86C1]" />
+          <Image
+            src="/miniatura_ebook_dr.png"
+            alt="Foto do Dr. Mauro Reis"
+            width={112}
+            height={112}
+            className="rounded-full object-cover shadow-lg mb-4 mx-auto" // <-- mx-auto ADICIONADO AQUI PARA CENTRALIZAR
+          />
           <h1 className="text-2xl font-extrabold mb-1">Navegando a Neurodiversidade</h1>
           <p className="text-[#A9CCE3] text-sm">Guia prático para famílias e profissionais</p>
         </div>
