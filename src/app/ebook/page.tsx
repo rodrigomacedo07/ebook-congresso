@@ -290,11 +290,11 @@ export default function EbookPage() {
 
             <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">3.2 Guia prático para o manejo de crises</h3>
             <p className="text-gray-700 leading-relaxed mb-4">Quando a prevenção não é possível e a crise acontece, ter um plano de ação claro pode fazer toda a diferença. Para um cuidador, sentir-se impotente durante uma crise, especialmente em público, pode ser devastador para a autoestima e o senso de competência. O julgamento social agrava a situação, transformando um momento de dificuldade em uma experiência de humilhação. Este guia prático não é apenas sobre acalmar a criança; é sobre restaurar a dignidade e a confiança do cuidador, transformando pânico em ação proposital.</p>
-            <ul className="space-y-4 text-gray-700 leading-relaxed list-none p-0 mb-8">
-              <li className="bg-white p-4 rounded-lg shadow-sm border border-gray-100"><strong>Passo 1: Garantir a segurança (Safety First).</strong> A prioridade absoluta é a segurança física de todos. Se a criança está se colocando em risco ou pode machucar outros, intervenha calmamente para garantir a segurança. Isso pode significar remover objetos perigosos do alcance, afastar outras pessoas ou, se necessário, usar uma contenção física segura e não punitiva, apenas para prevenir lesões. A meta não é parar o comportamento, mas garantir que ninguém se machuque.</li>
-              <li className="bg-white p-4 rounded-lg shadow-sm border border-gray-100"><strong>Passo 2: Reduzir estímulos (Co-regulação Ambiental).</strong> O cérebro da criança está em curto-circuito. Adicionar mais estímulos – como falar alto, fazer muitas perguntas ou dar ordens – é como jogar gasolina no fogo. Se possível, leve a criança para um local calmo e com pouca luz. Fale o mínimo possível, usando uma voz baixa e monótona. Reduza o contato visual se isso for estressante para ela. O ambiente deve se tornar um santuário, não um campo de batalha.</li>
-              <li className="bg-white p-4 rounded-lg shadow-sm border border-gray-100"><strong>Passo 3: Manter a calma e oferecer presença (Co-regulação Emocional).</strong> A criança se espelha no estado emocional do cuidador. Sua calma é a âncora dela. Respire fundo. Lembre-se de que este não é um ato de desafio, mas de sofrimento. Não leve para o lado pessoal. Ofereça uma presença silenciosa e solidária. Algumas crianças podem se beneficiar de pressão profunda (um abraço firme), enquanto outras podem não tolerar o toque. Respeite os sinais da criança.</li>
-              <li className="bg-white p-4 rounded-lg shadow-sm border border-gray-100"><strong>Passo 4: Acolhimento pós-crise (Recuperação).</strong> Após o pico, a criança entrará em uma fase de "desaceleração". Ela estará física e emocionalmente exausta. Este é um momento de acolhimento, não de sermões ou lições. Ofereça água, um cobertor, um abraço suave. A conversa sobre o que aconteceu e como evitar no futuro deve ocorrer muito mais tarde, quando todos estiverem completamente calmos e regulados.</li>
+            <ul className="space-y-5 text-gray-700 leading-relaxed list-none p-0 mb-8">
+              <li className="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-gray-100"><strong className="block text-[#0D2A4B] mb-2">Passo 1: Garantir a segurança (Safety First)</strong> A prioridade absoluta é a segurança física de todos. Se a criança está se colocando em risco ou pode machucar outros, intervenha calmamente para garantir a segurança. Isso pode significar remover objetos perigosos do alcance, afastar outras pessoas ou, se necessário, usar uma contenção física segura e não punitiva, apenas para prevenir lesões. A meta não é parar o comportamento, mas garantir que ninguém se machuque.</li>
+              <li className="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-gray-100"><strong className="block text-[#0D2A4B] mb-2">Passo 2: Reduzir estímulos (Co-regulação Ambiental)</strong> O cérebro da criança está em curto-circuito. Adicionar mais estímulos – como falar alto, fazer muitas perguntas ou dar ordens – é como jogar gasolina no fogo. Se possível, leve a criança para um local calmo e com pouca luz. Fale o mínimo possível, usando uma voz baixa e monótona. Reduza o contato visual se isso for estressante para ela. O ambiente deve se tornar um santuário, não um campo de batalha.</li>
+              <li className="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-gray-100"><strong className="block text-[#0D2A4B] mb-2">Passo 3: Manter a calma e oferecer presença (Co-regulação Emocional)</strong> A criança se espelha no estado emocional do cuidador. Sua calma é a âncora dela. Respire fundo. Lembre-se de que este não é um ato de desafio, mas de sofrimento. Não leve para o lado pessoal. Ofereça uma presença silenciosa e solidária. Algumas crianças podem se beneficiar de pressão profunda (um abraço firme), enquanto outras podem não tolerar o toque. Respeite os sinais da criança.</li>
+              <li className="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-gray-100"><strong className="block text-[#0D2A4B] mb-2">Passo 4: Acolhimento pós-crise (Recuperação)</strong> Após o pico, a criança entrará em uma fase de "desaceleração". Ela estará física e emocionalmente exausta. Este é um momento de acolhimento, não de sermões ou lições. Ofereça água, um cobertor, um abraço suave. A conversa sobre o que aconteceu e como evitar no futuro deve ocorrer muito mais tarde, quando todos estiverem completamente calmos e regulados.</li>
             </ul>
 
             <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">3.3 A Tríade do Bem-Estar: Sono, nutrição e movimento</h3>
@@ -529,25 +529,73 @@ export default function EbookPage() {
               <li><strong>Co-regulação:</strong> o processo pelo qual um indivíduo ajuda a acalmar e regular o estado emocional de outro através de sua própria presença calma e responsiva. Fundamental no manejo de crises.</li>
             </ul>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">Recursos confiáveis no Brasil</h3>
-            <p className="text-gray-700 leading-relaxed mb-4">Filtrar informações na internet pode ser desafiador. Esta lista inclui organizações e influenciadores que produzem conteúdo responsável e baseado em evidências.</p>
-            <ul className="space-y-4 text-gray-700 leading-relaxed list-disc pl-5 mb-8">
-              <li><strong>Associações e Instituições:</strong>
-                <ul className="list-circle pl-5 mt-2 space-y-2">
-                  <li><strong>Autismo e Realidade:</strong> Organização que oferece cartilhas, informações e apoio a famílias.</li>
-                  <li><strong>Instituto Inclusão Brasil:</strong> Oferece cursos, e-books e informações sobre educação inclusiva e neurodiversidade.</li>
-                  <li><strong>Autistas Brasil:</strong> Organização que promove eventos e debates sobre neurodiversidade e direitos, como o Fórum DiversaMente.</li>
-                </ul>
-              </li>
-              <li><strong>Influenciadores e criadores de conteúdo:</strong>
-                <ul className="list-circle pl-5 mt-2 space-y-2">
-                  <li><strong>Sophia Mendonça (Mundo Autista):</strong> Autora e youtuber, uma das principais vozes sobre autismo, especialmente em mulheres, no Brasil.</li>
-                  <li><strong>Família Tagarela (@mamaetagarela):</strong> Perfil familiar que aborda TDAH e autismo com dicas de parentalidade e humor.</li>
-                  <li><strong>Victor Di Marco (@victordimarco):</strong> Ativista que produz conteúdo informativo e responsável sobre neurodiversidade.</li>
-                  <li><strong>Marcos Mion:</strong> Apresentador e pai de um filho autista, atua como um importante defensor da causa, aumentando a conscientização em larga escala.</li>
-                </ul>
-              </li>
-            </ul>
+            {/* NOVO BLOCO DE REFERÊNCIAS */}
+            <div className="mt-12">
+              <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3 flex items-center gap-2">
+                <Instagram className="w-6 h-6 text-[#E1306C]" />
+                Recursos confiáveis no Brasil
+              </h3>
+              <p className="text-gray-700 leading-relaxed mb-8">
+                Filtrar informações na internet pode ser desafiador. Esta lista inclui organizações e influenciadores recomendados pelo Dr. Mauro Reis que produzem conteúdo responsável e baseado em evidências.
+              </p>
+
+              <div className="space-y-8">
+                {/* Categoria 1: Médicos */}
+                <div>
+                  <h4 className="font-bold text-[#2E86C1] mb-3 uppercase tracking-wider text-sm border-b pb-2">Médicos e Neurocientistas</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {[
+                      { nome: "Dr. Marcelo Masruha", arroba: "@dr.marcelomasruha", desc: "Neurologista Adulto e Infantil" },
+                      { nome: "Dr. Paulo Liberalesso", arroba: "@pauloliberalesso", desc: "Neuropediatra e Neurocientista" },
+                      { nome: "Dr. Thiago Castro", arroba: "@dr.thiagocastro", desc: "Autismo Baseado em Evidências" }
+                    ].map((perfil, i) => (
+                      <a key={i} href={`https://instagram.com/${perfil.arroba.replace('@', '')}`} target="_blank" rel="noopener noreferrer" className="flex flex-col p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors border border-gray-100">
+                        <span className="font-bold text-gray-800">{perfil.nome}</span>
+                        <span className="text-sm text-[#E1306C] font-medium">{perfil.arroba}</span>
+                        <span className="text-sm text-gray-500 mt-1">{perfil.desc}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Categoria 2: Psicologia e Educação */}
+                <div>
+                  <h4 className="font-bold text-[#2E86C1] mb-3 uppercase tracking-wider text-sm border-b pb-2">Psicologia, Pesquisa e Educação</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {[
+                      { nome: "Mayra Gaiato", arroba: "@mayragaiato", desc: "Psicóloga e Mestre em ABA" },
+                      { nome: "Dr. Thiago Lopes", arroba: "@dr_thiago_lopes", desc: "Doutor em Psicologia" },
+                      { nome: "Lucelmo Lacerda", arroba: "@lucelmo.lacerda", desc: "Pesquisador e Doutor em Educação" },
+                      { nome: "Prof. João Lucas", arroba: "@prof.joaolucaslima", desc: "Autismo e Inclusão" }
+                    ].map((perfil, i) => (
+                      <a key={i} href={`https://instagram.com/${perfil.arroba.replace('@', '')}`} target="_blank" rel="noopener noreferrer" className="flex flex-col p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors border border-gray-100">
+                        <span className="font-bold text-gray-800">{perfil.nome}</span>
+                        <span className="text-sm text-[#E1306C] font-medium">{perfil.arroba}</span>
+                        <span className="text-sm text-gray-500 mt-1">{perfil.desc}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Categoria 3: Vivência e Instituições */}
+                <div>
+                  <h4 className="font-bold text-[#2E86C1] mb-3 uppercase tracking-wider text-sm border-b pb-2">Vivência e Instituições</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {[
+                      { nome: "Fernanda Fialho", arroba: "@paraquetabu", desc: "Autismo & Saúde Mental Sem Tabu" },
+                      { nome: "Paulo Messina", arroba: "@messinaoficial", desc: "Pai de Gêmeos Autistas e Professor" },
+                      { nome: "Instituto Neurodiversidade", arroba: "@institutoneurodiversidade", desc: "Clínica Multidisciplinar" }
+                    ].map((perfil, i) => (
+                      <a key={i} href={`https://instagram.com/${perfil.arroba.replace('@', '')}`} target="_blank" rel="noopener noreferrer" className="flex flex-col p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors border border-gray-100">
+                        <span className="font-bold text-gray-800">{perfil.nome}</span>
+                        <span className="text-sm text-[#E1306C] font-medium">{perfil.arroba}</span>
+                        <span className="text-sm text-gray-500 mt-1">{perfil.desc}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <h3 className="text-xl font-bold text-[#0D2A4B] mt-10 mb-4">Checklists práticos para o dia a dia</h3>
             
@@ -565,7 +613,7 @@ export default function EbookPage() {
                 "Cartões de comunicação simples (se a criança for não-verbal ou perder a fala em momentos de estresse)."
               ].map((item, i) => (
                 <label key={i} className="flex items-start p-4 border-b border-gray-50 hover:bg-gray-50 cursor-pointer transition-colors active:bg-gray-100">
-                  <input type="checkbox" className="w-6 h-6 mt-0.5 text-[#2E86C1] rounded border-gray-300 focus:ring-[#2E86C1]" />
+                  <input type="checkbox" className="w-6 h-6 shrink-0 mt-0.5 text-[#2E86C1] rounded border-gray-300 focus:ring-[#2E86C1]" />
                   <span className="ml-3 text-gray-700 leading-relaxed">{item}</span>
                 </label>
               ))}
@@ -622,7 +670,7 @@ export default function EbookPage() {
                 "Próximos passos: definir um plano de ação claro, com responsáveis e prazos."
               ].map((item, i) => (
                 <label key={i} className="flex items-start p-4 border-b border-gray-50 hover:bg-gray-50 cursor-pointer transition-colors active:bg-gray-100">
-                  <input type="checkbox" className="w-6 h-6 mt-0.5 text-[#2E86C1] rounded border-gray-300 focus:ring-[#2E86C1]" />
+                  <input type="checkbox" className="w-6 h-6 shrink-0 mt-0.5 text-[#2E86C1] rounded border-gray-300 focus:ring-[#2E86C1]" />
                   <span className="ml-3 text-gray-700 leading-relaxed">{item}</span>
                 </label>
               ))}
@@ -655,7 +703,49 @@ export default function EbookPage() {
             </div>
 
             
+            {/* ========================================= */}
+            {/* DIVISOR DE SEÇÃO (PAUSA COGNITIVA)          */}
+            {/* ========================================= */}
+            <div className="my-16 flex items-center justify-center">
+              <div className="h-px bg-gray-200 flex-1"></div>
+              <span className="px-4 text-gray-400 text-sm uppercase tracking-widest font-semibold">
+                Sua Opinião Importa
+              </span>
+              <div className="h-px bg-gray-200 flex-1"></div>
+            </div>
+
+            {/* Formulário de Feedback */}
             <FeedbackForm />
+
+            {/* ========================================= */}
+            {/* CTA DO INSTAGRAM (SOFT PITCH)               */}
+            {/* ========================================= */}
+            <div className="mt-16 mb-8 bg-[#EBF5FB] rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 text-center md:text-left shadow-sm border border-[#2E86C1]/20">
+              <Image 
+                src="/miniatura_ebook_dr.png"
+                alt="Dr. Mauro Reis" 
+                width={112} 
+                height={112} 
+                className="rounded-full object-cover border-4 border-white shadow-md shrink-0"
+              />
+              <div>
+                <h3 className="text-xl font-bold text-[#0D2A4B] mb-2">
+                  Vamos continuar essa conversa?
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-5">
+                  Espero que este guia tenha sido útil e traga clareza para a sua jornada. Diariamente, compartilho mais dicas, atualizações e reflexões sobre neurodiversidade no meu Instagram. Será um prazer ter você por lá!
+                </p>
+                <a 
+                  href="https://www.instagram.com/dr.mauroreis/" // <-- Insira o @ real aqui
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-[#2E86C1] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#1A5F8C] transition-colors shadow-sm active:scale-95"
+                >
+                  <Instagram className="w-5 h-5 shrink-0" />
+                  Me siga no Instagram
+                </a>
+              </div>
+            </div>
 
           </section>
         )}
