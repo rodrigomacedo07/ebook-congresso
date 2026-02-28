@@ -631,7 +631,7 @@ export default function EbookPage() {
                       { nome: "Mayra Gaiato", arroba: "@mayragaiato", desc: "Psicóloga e Mestre em ABA" },
                       { nome: "Dr. Thiago Lopes", arroba: "@dr_thiago_lopes", desc: "Doutor em Psicologia" },
                       { nome: "Lucelmo Lacerda", arroba: "@lucelmo.lacerda", desc: "Pesquisador e Doutor em Educação" },
-                      { nome: "Prof. João Lucas", arroba: "@prof.joaolucaslima", desc: "Autismo e Inclusão" }
+                      { nome: "Prof. João Lucas", arroba: "@prof.joaolucaslima", desc: "Doutorando em Educação - Autismo e Inclusão" }
                     ].map((perfil, i) => (
                       <a key={i} href={`https://instagram.com/${perfil.arroba.replace('@', '')}`} target="_blank" rel="noopener noreferrer" className="flex flex-col p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors border border-gray-100">
                         <span className="font-bold text-gray-800">{perfil.nome}</span>
