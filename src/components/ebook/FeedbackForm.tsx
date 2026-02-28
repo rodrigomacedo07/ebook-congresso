@@ -85,7 +85,7 @@ export default function FeedbackForm() {
           
           <div>
             <p className="text-sm font-semibold text-gray-700 mb-3 text-center">
-              O que mais chamou sua atenção? (Opcional)
+              O que mais chamou sua atenção? (opcional)
             </p>
             <div className="flex flex-wrap justify-center gap-2">
               {tagsDisponiveis.map(tag => (
@@ -107,7 +107,7 @@ export default function FeedbackForm() {
 
           <div>
             <p className="text-sm font-semibold text-gray-700 mb-2">
-              Sugestões para os próximos temas (Opcional)
+              Sugestões para os próximos temas (opcional)
             </p>
             <textarea
               rows={3}
@@ -130,7 +130,7 @@ export default function FeedbackForm() {
             {isSubmitting ? (
               <><Loader2 className="w-5 h-5 mr-2 animate-spin" /> Enviando...</>
             ) : (
-              'Enviar Avaliação'
+              'Enviar avaliação'
             )}
           </button>
         </div>

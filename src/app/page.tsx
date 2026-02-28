@@ -50,13 +50,13 @@ export default function LandingPage() {
         {/* Formulário de Captura */}
         <div className="p-6 md:p-8">
           <div className="mb-6 text-center">
-            <h2 className="text-lg font-bold text-gray-800">Baixe seu E-book Gratuito</h2>
+            <h2 className="text-lg font-bold text-gray-800">Baixe seu e-book gratuito</h2>
             <p className="text-sm text-gray-500 mt-1">Preencha os dados abaixo para liberar o seu acesso imediato.</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="nome" className="block text-sm font-semibold text-gray-700 mb-1">Nome Completo</label>
+              <label htmlFor="nome" className="block text-sm font-semibold text-gray-700 mb-1">Nome completo</label>
               <input 
                 type="text" id="nome" name="nome" required 
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#2E86C1] focus:border-transparent outline-none transition-all text-gray-900"
@@ -117,7 +117,7 @@ export default function LandingPage() {
                   Liberando acesso...
                 </>
               ) : (
-                'Acessar E-book Agora'
+                'Acessar e-book agora'
               )}
             </button>
           </form>

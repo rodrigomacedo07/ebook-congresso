@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
 import FeedbackForm from '@/components/ebook/FeedbackForm';
+import Image from 'next/image';
 
 export default function EbookPage() {
   const [currentChapter, setCurrentChapter] = useState(0);
@@ -18,10 +19,22 @@ export default function EbookPage() {
       {/* Header Fixo Mobile */}
       <header className="sticky top-0 bg-white shadow-sm z-50">
         <div className="flex justify-between items-center p-4">
-          <h1 className="text-lg font-bold text-[#0D2A4B] truncate pr-4">
-            Navegando a Neurodiversidade
-          </h1>
-          <button className="p-2 text-gray-600 hover:bg-gray-100 rounded-md">
+          
+          {/* Agrupamento da Logo + Título */}
+          <div className="flex items-center gap-3 overflow-hidden">
+            <Image 
+              src="/logo.png"
+              alt="Logo Dr. Mauro Reis" 
+              width={36} 
+              height={36} 
+              className="shrink-0 object-contain"
+            />
+            <h1 className="text-lg font-bold text-[#0D2A4B] truncate">
+              Navegando a Neurodiversidade
+            </h1>
+          </div>
+
+          <button className="p-2 text-gray-600 hover:bg-gray-100 rounded-md shrink-0">
             <Menu className="w-6 h-6" />
           </button>
         </div>
@@ -44,7 +57,7 @@ export default function EbookPage() {
               <div className="w-1.5 h-12 bg-[#2E86C1] rounded-full mr-4 mt-1 shrink-0"></div>
               <div>
                 <p className="text-sm font-bold text-[#2E86C1] uppercase tracking-wider mb-1">Introdução</p>
-                <h2 className="text-3xl font-extrabold m-0 leading-tight">Uma Nova Jornada Começa Aqui</h2>
+                <h2 className="text-3xl font-extrabold m-0 leading-tight">Uma nova jornada começa aqui</h2>
               </div>
             </div>
             
@@ -68,12 +81,12 @@ export default function EbookPage() {
               <div className="w-1.5 h-16 bg-[#2E86C1] rounded-full mr-4 mt-1 shrink-0"></div>
               <div>
                 <p className="text-sm font-bold text-[#2E86C1] uppercase tracking-wider mb-1">Capítulo 1</p>
-                <h2 className="text-3xl font-extrabold m-0 leading-tight">Decodificando o Cérebro: Um Olhar por Dentro do Autismo e do TDAH</h2>
+                <h2 className="text-3xl font-extrabold m-0 leading-tight">Decodificando o cérebro: um olhar por dentro do Autismo e do TDAH</h2>
               </div>
             </div>
             
             <blockquote className="border-l-4 border-[#A9CCE3] pl-4 italic text-gray-600 text-lg my-6 bg-white p-4 rounded-r-lg shadow-sm">
-              "Um desenvolvimento 'atípico' ou 'divergente'... não significa que a construção deu errado, mas que foi utilizado um mapa diferente."
+              "Um desenvolvimento 'atípico' ou 'divergente' não significa que a construção deu errado, mas que foi utilizado um mapa diferente."
             </blockquote>
             
             <div className="space-y-5 text-gray-700 leading-relaxed mb-8">
@@ -92,13 +105,13 @@ export default function EbookPage() {
               <p>Esse "congestionamento" está frequentemente ligado ao funcionamento de neurotransmissores, que são os mensageiros químicos do cérebro. No TDAH, há um desequilíbrio, principalmente na dopamina e na noradrenalina, que são cruciais para a regulação da atenção, motivação e funções executivas. Isso explica por que uma criança com TDAH pode ter dificuldade em focar em uma tarefa que considera monótona, mas consegue se hiperfocar por horas em um videogame que lhe proporciona estímulos constantes e recompensas imediatas. Não se trata de falta de vontade ou de "má criação", mas de uma diferença neurobiológica real no sistema de regulação e recompensa do cérebro. Pesquisas com exames de ressonância magnética também mostram que algumas áreas do cérebro, particularmente aquelas no córtex pré-frontal responsáveis pelo controle executivo, podem ser um pouco menores ou demorar mais para amadurecer em indivíduos com TDAH.</p>
             </div>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">1.3 O Cérebro no Espectro Autista (TEA)</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">1.3 O Cérebro no espectro autista (TEA)</h3>
             <div className="space-y-5 text-gray-700 leading-relaxed mb-8">
               <p>O cérebro de uma pessoa no espectro autista processa o mundo de uma maneira fundamentalmente diferente. Pesquisas sugerem que o TEA está associado a padrões atípicos de conectividade cerebral. Em alguns casos, pode haver uma superabundância de conexões locais, de curta distância, e uma deficiência nas conexões de longa distância, que integram informações de diferentes áreas do cérebro.</p>
               <p>Essa particularidade na "fiação" cerebral pode explicar muitas das características centrais do autismo. A dificuldade na interação social, por exemplo, não decorre de uma falta de desejo de se conectar, mas de uma diferença na "linguagem" neurológica. O cérebro autista pode ter dificuldade em processar simultaneamente a complexidade das pistas sociais – expressões faciais, tom de voz, linguagem corporal – que para um cérebro neurotípico é algo intuitivo. A preferência por rotinas e a resistência a mudanças podem ser entendidas como uma estratégia do cérebro para criar um ambiente previsível e reduzir a sobrecarga de processar um mundo que parece caótico e imprevisível. Da mesma forma, as sensibilidades sensoriais (a uma luz, som ou textura) ocorrem porque o cérebro pode não filtrar os estímulos da mesma forma, levando a uma experiência sensorial muito mais intensa e, por vezes, avassaladora.</p>
             </div>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">1.4 Juntos, mas Diferentes: A Comorbidade de TEA e TDAH</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">1.4 Juntos, mas diferentes: A comorbidade de TEA e TDAH</h3>
             <div className="space-y-5 text-gray-700 leading-relaxed mb-6">
               <p>É muito comum que uma criança receba o diagnóstico tanto de TEA quanto de TDAH. De fato, estima-se que até 70% das pessoas com autismo possam ter um transtorno mental associado, e o TDAH é uma das comorbidades mais frequentes. Essa sobreposição pode gerar confusão, pois alguns sintomas parecem semelhantes à primeira vista. Por exemplo, a inquietação de uma criança com TDAH pode ser confundida com a necessidade de movimento (stimming) de uma criança autista para se autorregular.</p>
               <p>No entanto, as razões por trás dos comportamentos são distintas. A criança com TDAH pode ter dificuldade em seguir uma conversa porque sua atenção é constantemente desviada, sendo descrita como alguém que "vive com a cabeça nas nuvens". Já a criança autista pode ter dificuldade na mesma conversa porque não compreende as nuances da comunicação não-verbal ou porque o tema não se alinha com seus interesses restritos. Quando as duas condições coexistem, os desafios podem se intensificar. A impulsividade do TDAH pode exacerbar as dificuldades sociais do TEA, enquanto a necessidade de rotina do autismo pode entrar em conflito com a desorganização característica do TDAH. Compreender essa interação é crucial para desenvolver estratégias de apoio que abordem as necessidades específicas da criança de forma integrada.</p>
@@ -108,7 +121,7 @@ export default function EbookPage() {
             {/* UX Otimizada: Tabelas viram Cards no Mobile */}
             <div className="space-y-4">
               <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
-                <h4 className="font-bold text-[#0D2A4B] mb-3 text-lg border-b pb-2">Núcleo do Transtorno</h4>
+                <h4 className="font-bold text-[#0D2A4B] mb-3 text-lg border-b pb-2">Núcleo do transtorno</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <span className="text-xs font-bold text-[#2E86C1] uppercase tracking-wider">Transtorno do Espectro Autista (TEA)</span>
@@ -122,7 +135,7 @@ export default function EbookPage() {
               </div>
 
               <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
-                <h4 className="font-bold text-[#0D2A4B] mb-3 text-lg border-b pb-2">Interação Social</h4>
+                <h4 className="font-bold text-[#0D2A4B] mb-3 text-lg border-b pb-2">Interação social</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <span className="text-xs font-bold text-[#2E86C1] uppercase tracking-wider">TEA</span>
@@ -150,7 +163,7 @@ export default function EbookPage() {
               </div>
 
               <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
-                <h4 className="font-bold text-[#0D2A4B] mb-3 text-lg border-b pb-2">Foco e Atenção</h4>
+                <h4 className="font-bold text-[#0D2A4B] mb-3 text-lg border-b pb-2">Foco e atenção</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <span className="text-xs font-bold text-[#2E86C1] uppercase tracking-wider">TEA</span>
@@ -187,40 +200,40 @@ export default function EbookPage() {
               <div className="w-1.5 h-16 bg-[#2E86C1] rounded-full mr-4 mt-1 shrink-0"></div>
               <div>
                 <p className="text-sm font-bold text-[#2E86C1] uppercase tracking-wider mb-1">Capítulo 2</p>
-                <h2 className="text-3xl font-extrabold m-0 leading-tight">O Mapa do Cuidado: Diagnóstico, Comorbidades e a Equipe Multidisciplinar</h2>
+                <h2 className="text-3xl font-extrabold m-0 leading-tight">O Mapa do Cuidado: diagnóstico, comorbidades e a equipe multidisciplinar</h2>
               </div>
             </div>
             
             <blockquote className="border-l-4 border-[#A9CCE3] pl-4 italic text-gray-600 text-lg my-6 bg-white p-4 rounded-r-lg shadow-sm">
-              "Muitas vezes, são as comorbidades... que causam o maior impacto negativo na qualidade de vida da criança e no bem-estar da família."
+              "Muitas vezes, são as comorbidades que causam o maior impacto negativo na qualidade de vida da criança e no bem-estar da família."
             </blockquote>
             
             <p className="text-gray-700 leading-relaxed mb-8">Após a compreensão inicial da neurobiologia do TEA e do TDAH, o próximo passo é traçar um mapa claro para o cuidado. Este capítulo aborda a jornada do diagnóstico, a importância crucial de entender as comorbidades e como montar uma equipe de apoio eficaz. O foco aqui é prático: transformar a complexidade clínica em um plano de ação compreensível e gerenciável para a família.</p>
             
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">2.1 A Jornada do Diagnóstico</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">2.1 A jornada do diagnóstico</h3>
             <div className="space-y-5 text-gray-700 leading-relaxed mb-8">
               <p>A busca por um diagnóstico no Brasil pode ser uma jornada longa e, por vezes, frustrante. A carência de pesquisas e mapeamentos oficiais sobre a população neurodivergente no país contribui para a dificuldade no acesso a profissionais qualificados e para a disseminação de informações equivocadas. Muitas famílias relatam a demora no agendamento de consultas especializadas, o que atrasa o início de intervenções essenciais.</p>
               <p>É fundamental compreender que um diagnóstico preciso, especialmente em casos onde há suspeita de comorbidades, raramente é feito por um único profissional. A avaliação multidisciplinar é o padrão-ouro. Isso significa que a criança deve ser avaliada por uma equipe que pode incluir neurologista, psiquiatra, psicólogo, fonoaudiólogo e terapeuta ocupacional. Essa abordagem integrada é vital para diferenciar os sintomas de TEA e TDAH e identificar outras condições coexistentes, evitando diagnósticos equivocados ou tardios que podem comprometer a qualidade de vida da criança e da família. Validar a dificuldade desse processo é o primeiro passo para que a família se sinta amparada e não culpada pelas demoras ou incertezas.</p>
             </div>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">2.2 O que são Comorbidades? Por que são tão Importantes?</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">2.2 O que são comorbidades? Por que são tão importantes?</h3>
             <div className="space-y-5 text-gray-700 leading-relaxed mb-8">
               <p>O termo "comorbidade" refere-se à existência de duas ou mais condições de saúde simultaneamente na mesma pessoa. No universo do TEA e do TDAH, as comorbidades não são uma eventualidade, mas uma ocorrência extremamente comum. Crianças com TEA, por exemplo, têm uma carga de comorbidades significativamente maior do que a população pediátrica geral.</p>
               <p>A identificação e o tratamento dessas condições associadas são absolutamente essenciais. Muitas vezes, são as comorbidades – e não os sintomas nucleares do TEA ou TDAH – que causam o maior impacto negativo na qualidade de vida da criança e no bem-estar da família. Uma criança que não dorme, que sofre com dores gastrointestinais crônicas ou que vive paralisada pela ansiedade enfrenta barreiras diárias que agravam todos os outros desafios. Ignorar as comorbidades é como tentar consertar um carro focando apenas no motor, sem verificar se os pneus estão furados ou se falta combustível. Uma abordagem completa e eficaz exige um olhar integral para a saúde da criança, promovendo maior bem-estar e desenvolvimento funcional. Para a família, o manejo eficaz das comorbidades representa um alívio tangível e imediato, transformando noites de insônia e dias de crise em uma rotina mais estável e previsível.</p>
             </div>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">2.3 Comorbidades Comuns e Seus Sinais</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">2.3 Comorbidades comuns e seus sinais</h3>
             <div className="space-y-6 text-gray-700 leading-relaxed mb-8">
               <div>
-                <h4 className="font-bold text-[#2E86C1] mb-2">Transtornos de Ansiedade e Depressão</h4>
+                <h4 className="font-bold text-[#2E86C1] mb-2">Transtornos de ansiedade e depressão</h4>
                 <p>Pessoas neurodivergentes enfrentam pressões sociais constantes para se adequar a padrões de comportamento, o que gera sobrecarga emocional e isolamento, aumentando o risco de desenvolver ansiedade e depressão. A prevalência de ansiedade em pessoas com TEA, por exemplo, é drasticamente maior do que na população geral. Os sintomas, no entanto, podem ser atípicos. Em vez de expressar preocupação verbalmente, uma criança pode manifestar ansiedade através do aumento de comportamentos repetitivos, irritabilidade ou crises. Da mesma forma, a depressão pode se apresentar como perda de interesse em hiperfocos, isolamento social mais intenso ou alterações no sono e apetite. É crucial não atribuir automaticamente esses sinais apenas ao TEA ou TDAH.</p>
               </div>
               <div>
-                <h4 className="font-bold text-[#2E86C1] mb-2">Distúrbios do Sono</h4>
+                <h4 className="font-bold text-[#2E86C1] mb-2">Distúrbios do sono</h4>
                 <p>Problemas de sono são extremamente prevalentes e impactam profundamente o funcionamento diurno. Isso pode incluir dificuldade para iniciar o sono, despertares frequentes durante a noite, ou um ritmo circadiano (o relógio biológico do corpo) desregulado. A falta de sono de qualidade pode agravar a desatenção, a hiperatividade, a irritabilidade e a dificuldade de regulação emocional, criando um ciclo vicioso de exaustão para a criança e para os cuidadores.</p>
               </div>
               <div>
-                <h4 className="font-bold text-[#2E86C1] mb-2">Questões Gastrointestinais e Seletividade Alimentar</h4>
+                <h4 className="font-bold text-[#2E86C1] mb-2">Questões gastrointestinais e seletividade alimentar</h4>
                 <p>Muitas famílias enfrentam uma batalha diária na hora das refeições. A seletividade alimentar em crianças com TEA e TDAH é frequentemente ligada a questões sensoriais (hipersensibilidade a texturas, cheiros ou sabores) e à necessidade de previsibilidade. Além disso, há uma alta incidência de problemas gastrointestinais, como constipação, diarreia e dores abdominais. Esses problemas podem não apenas causar desconforto físico e deficiências nutricionais, mas também influenciar diretamente o comportamento e o humor da criança.</p>
               </div>
               <div>
@@ -229,7 +242,7 @@ export default function EbookPage() {
               </div>
             </div>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">2.4 Montando sua Equipe de Apoio</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">2.4 Montando sua equipe de apoio</h3>
             <p className="text-gray-700 leading-relaxed mb-4">Nenhuma família deveria passar por essa jornada sozinha. Construir uma equipe multidisciplinar de apoio é um passo fundamental. Cada profissional traz uma peça diferente do quebra-cabeça, e a colaboração entre eles é o que garante uma abordagem integrada e centrada na criança. Sua equipe pode incluir:</p>
             <ul className="space-y-3 text-gray-700 leading-relaxed list-disc pl-5 mb-4">
               <li><strong>Neurologista/Neuropediatra:</strong> Responsável pelo diagnóstico, manejo de comorbidades como epilepsia e, quando necessário, pela prescrição de medicamentos.</li>
@@ -249,7 +262,7 @@ export default function EbookPage() {
               <div className="w-1.5 h-16 bg-[#2E86C1] rounded-full mr-4 mt-1 shrink-0"></div>
               <div>
                 <p className="text-sm font-bold text-[#2E86C1] uppercase tracking-wider mb-1">Capítulo 3</p>
-                <h2 className="text-3xl font-extrabold m-0 leading-tight">A Caixa de Ferramentas do Dia a Dia: Estratégias que Transformam Desafios em Conquistas</h2>
+                <h2 className="text-3xl font-extrabold m-0 leading-tight">A Caixa de ferramentas do dia a dia: estratégias que transformam desafios em conquistas</h2>
               </div>
             </div>
             
@@ -259,23 +272,23 @@ export default function EbookPage() {
             
             <p className="text-gray-700 leading-relaxed mb-8">Compreender o cérebro e montar uma equipe de apoio são os alicerces. Agora, é hora de construir o dia a dia. Este capítulo é uma "caixa de ferramentas" prática, com estratégias baseadas em evidências para lidar com os desafios mais comuns. O foco é empoderar os cuidadores com ações concretas que podem ser implementadas imediatamente para melhorar a qualidade de vida de toda a família.</p>
             
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">3.1 Entendendo e Prevenindo Crises (Meltdowns)</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">3.1 Entendendo e prevenindo crises (meltdowns)</h3>
             <div className="space-y-5 text-gray-700 leading-relaxed mb-8">
               <p>Um dos maiores desafios para as famílias é lidar com as crises, ou <em>meltdowns</em>. O primeiro passo para manejá-las é entender a diferença fundamental entre uma birra e um <em>meltdown</em>. Uma birra é um comportamento, muitas vezes manipulador e direcionado a um objetivo, que uma criança usa para conseguir o que quer. Ela tende a diminuir se não houver uma plateia.</p>
               <p>Um <em>meltdown</em>, por outro lado, é uma reação intensa e involuntária a uma sobrecarga sensorial ou emocional. O cérebro da criança simplesmente não consegue mais processar os estímulos e entra em colapso. Não há um objetivo final, a não ser a liberação de uma tensão insuportável.[28, 29] Reconhecer essa diferença é crucial, pois as estratégias para lidar com cada um são opostas. Tentar negociar ou punir um <em>meltdown</em> é ineficaz e pode piorar a situação.</p>
               <p>A prevenção é a ferramenta mais poderosa. Isso envolve aprender a identificar os gatilhos da criança (ambientes barulhentos, mudanças inesperadas, cansaço, fome) e os sinais de alerta que precedem a crise (a fase de "aceleração"). Esses sinais podem incluir aumento de movimentos repetitivos, mudança na expressão facial, rigidez corporal ou emissão de sons. Intervir nesse momento, removendo a criança do ambiente estressor ou oferecendo uma ferramenta de regulação, pode evitar que a crise atinja seu pico.[29, 30]</p>
             </div>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">3.2 Guia Prático para o Manejo de Crises</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">3.2 Guia prático para o manejo de crises</h3>
             <p className="text-gray-700 leading-relaxed mb-4">Quando a prevenção não é possível e a crise acontece, ter um plano de ação claro pode fazer toda a diferença. Para um cuidador, sentir-se impotente durante uma crise, especialmente em público, pode ser devastador para a autoestima e o senso de competência. O julgamento social agrava a situação, transformando um momento de dificuldade em uma experiência de humilhação. Este guia prático não é apenas sobre acalmar a criança; é sobre restaurar a dignidade e a confiança do cuidador, transformando pânico em ação proposital.</p>
             <ul className="space-y-4 text-gray-700 leading-relaxed list-none p-0 mb-8">
-              <li className="bg-white p-4 rounded-lg shadow-sm border border-gray-100"><strong>Passo 1: Garantir a Segurança (Safety First).</strong> A prioridade absoluta é a segurança física de todos. Se a criança está se colocando em risco ou pode machucar outros, intervenha calmamente para garantir a segurança. Isso pode significar remover objetos perigosos do alcance, afastar outras pessoas ou, se necessário, usar uma contenção física segura e não punitiva, apenas para prevenir lesões. A meta não é parar o comportamento, mas garantir que ninguém se machuque.</li>
-              <li className="bg-white p-4 rounded-lg shadow-sm border border-gray-100"><strong>Passo 2: Reduzir Estímulos (Co-regulação Ambiental).</strong> O cérebro da criança está em curto-circuito. Adicionar mais estímulos – como falar alto, fazer muitas perguntas ou dar ordens – é como jogar gasolina no fogo. Se possível, leve a criança para um local calmo e com pouca luz. Fale o mínimo possível, usando uma voz baixa e monótona. Reduza o contato visual se isso for estressante para ela. O ambiente deve se tornar um santuário, não um campo de batalha.</li>
-              <li className="bg-white p-4 rounded-lg shadow-sm border border-gray-100"><strong>Passo 3: Manter a Calma e Oferecer Presença (Co-regulação Emocional).</strong> A criança se espelha no estado emocional do cuidador. Sua calma é a âncora dela. Respire fundo. Lembre-se de que este não é um ato de desafio, mas de sofrimento. Não leve para o lado pessoal. Ofereça uma presença silenciosa e solidária. Algumas crianças podem se beneficiar de pressão profunda (um abraço firme), enquanto outras podem não tolerar o toque. Respeite os sinais da criança.</li>
-              <li className="bg-white p-4 rounded-lg shadow-sm border border-gray-100"><strong>Passo 4: Acolhimento Pós-Crise (Recuperação).</strong> Após o pico, a criança entrará em uma fase de "desaceleração". Ela estará física e emocionalmente exausta. Este é um momento de acolhimento, não de sermões ou lições. Ofereça água, um cobertor, um abraço suave. A conversa sobre o que aconteceu e como evitar no futuro deve ocorrer muito mais tarde, quando todos estiverem completamente calmos e regulados.</li>
+              <li className="bg-white p-4 rounded-lg shadow-sm border border-gray-100"><strong>Passo 1: Garantir a segurança (Safety First).</strong> A prioridade absoluta é a segurança física de todos. Se a criança está se colocando em risco ou pode machucar outros, intervenha calmamente para garantir a segurança. Isso pode significar remover objetos perigosos do alcance, afastar outras pessoas ou, se necessário, usar uma contenção física segura e não punitiva, apenas para prevenir lesões. A meta não é parar o comportamento, mas garantir que ninguém se machuque.</li>
+              <li className="bg-white p-4 rounded-lg shadow-sm border border-gray-100"><strong>Passo 2: Reduzir estímulos (Co-regulação Ambiental).</strong> O cérebro da criança está em curto-circuito. Adicionar mais estímulos – como falar alto, fazer muitas perguntas ou dar ordens – é como jogar gasolina no fogo. Se possível, leve a criança para um local calmo e com pouca luz. Fale o mínimo possível, usando uma voz baixa e monótona. Reduza o contato visual se isso for estressante para ela. O ambiente deve se tornar um santuário, não um campo de batalha.</li>
+              <li className="bg-white p-4 rounded-lg shadow-sm border border-gray-100"><strong>Passo 3: Manter a calma e oferecer presença (Co-regulação Emocional).</strong> A criança se espelha no estado emocional do cuidador. Sua calma é a âncora dela. Respire fundo. Lembre-se de que este não é um ato de desafio, mas de sofrimento. Não leve para o lado pessoal. Ofereça uma presença silenciosa e solidária. Algumas crianças podem se beneficiar de pressão profunda (um abraço firme), enquanto outras podem não tolerar o toque. Respeite os sinais da criança.</li>
+              <li className="bg-white p-4 rounded-lg shadow-sm border border-gray-100"><strong>Passo 4: Acolhimento pós-crise (Recuperação).</strong> Após o pico, a criança entrará em uma fase de "desaceleração". Ela estará física e emocionalmente exausta. Este é um momento de acolhimento, não de sermões ou lições. Ofereça água, um cobertor, um abraço suave. A conversa sobre o que aconteceu e como evitar no futuro deve ocorrer muito mais tarde, quando todos estiverem completamente calmos e regulados.</li>
             </ul>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">3.3 A Tríade do Bem-Estar: Sono, Nutrição e Movimento</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">3.3 A Tríade do Bem-Estar: Sono, nutrição e movimento</h3>
             <p className="text-gray-700 leading-relaxed mb-4">O manejo de crises é reativo. A construção do bem-estar é proativa. Focar em três pilares fundamentais pode aumentar drasticamente a resiliência da criança e reduzir a frequência e a intensidade das crises.</p>
             <ul className="space-y-4 text-gray-700 leading-relaxed list-disc pl-5 mb-8">
               <li><strong>Sono:</strong> A desregulação do ritmo circadiano é comum em crianças com TEA. Estabelecer uma rotina de sono consistente e previsível é fundamental. Isso inclui um "ritual de desaceleração" antes de dormir (banho morno, leitura, música calma), garantir que o quarto seja escuro e silencioso, e evitar telas pelo menos uma hora antes de deitar. A higiene do sono é uma intervenção poderosa para melhorar o humor e a capacidade de regulação no dia seguinte.</li>
@@ -283,7 +296,7 @@ export default function EbookPage() {
               <li><strong>Movimento:</strong> A atividade física é uma ferramenta poderosa para a regulação. Para crianças com TDAH, ajuda a gastar o excesso de energia e a melhorar o foco. Para crianças com TEA, atividades rítmicas como pular, balançar ou correr podem ser extremamente organizadoras para o sistema nervoso. Integrar "pausas para movimento" ao longo do dia pode prevenir o acúmulo de tensão que leva a crises.</li>
             </ul>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">3.4 O Poder da Rotina e da Previsibilidade</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">3.4 O Poder da rotina e da previsibilidade</h3>
             <div className="space-y-5 text-gray-700 leading-relaxed mb-8">
               <p>Para um cérebro neurodivergente que pode se sentir constantemente sobrecarregado por um mundo imprevisível, a rotina é uma âncora de segurança. Ela reduz a carga cognitiva de ter que processar o que vai acontecer a seguir, liberando recursos mentais para outras tarefas. A previsibilidade diminui a ansiedade e aumenta a cooperação.</p>
               <p>A melhor maneira de implementá-las é através de suportes visuais. Um quadro com a sequência de atividades da manhã (acordar, vestir, tomar café, escovar os dentes) ou um calendário semanal visual podem transformar transições caóticas em processos suaves e independentes. Antecipar mudanças também é crucial. Em vez de anunciar uma ida ao médico de surpresa, coloque um cartão no quadro de rotina no dia anterior. Isso dá à criança tempo para se preparar mentalmente, reduzindo a resistência e o estresse.</p>
@@ -298,17 +311,17 @@ export default function EbookPage() {
               <div className="w-1.5 h-16 bg-[#2E86C1] rounded-full mr-4 mt-1 shrink-0"></div>
               <div>
                 <p className="text-sm font-bold text-[#2E86C1] uppercase tracking-wider mb-1">Capítulo 4</p>
-                <h2 className="text-3xl font-extrabold m-0 leading-tight">A Parceria de Sucesso: Navegando o Ambiente Escolar</h2>
+                <h2 className="text-3xl font-extrabold m-0 leading-tight">A parceria de sucesso: navegando o ambiente escolar</h2>
               </div>
             </div>
             
             <blockquote className="border-l-4 border-[#A9CCE3] pl-4 italic text-gray-600 text-lg my-6 bg-white p-4 rounded-r-lg shadow-sm">
-              "Ao se armarem com conhecimento... os pais deixam de ser apenas espectadores passivos e se tornam os defensores mais eficazes de seus filhos."
+              "Ao se armarem com conhecimento os pais deixam de ser apenas espectadores passivos e se tornam os defensores mais eficazes de seus filhos."
             </blockquote>
             
             <p className="text-gray-700 leading-relaxed mb-8">A escola representa um dos maiores desafios e, ao mesmo tempo, uma das maiores oportunidades para o desenvolvimento de uma criança neurodivergente. No entanto, para muitas famílias no Brasil, o ambiente escolar se torna um campo de batalha, onde a falta de preparo do sistema e o preconceito geram um ciclo de frustração e exaustão. Este capítulo foi desenhado não apenas como um guia de estratégias pedagógicas, mas como um manual de advocacia para pais, equipando-os com o conhecimento e as ferramentas para construir uma parceria eficaz com a escola e garantir os direitos de seus filhos.</p>
             
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">4.1 Seus Direitos na Escola</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">4.1 Seus direitos na escola</h3>
             <p className="text-gray-700 leading-relaxed mb-4">O primeiro passo para uma advocacia eficaz é conhecer a lei. No Brasil, a Lei Brasileira de Inclusão da Pessoa com Deficiência (Lei nº 13.146/2015) é um marco legal que garante o direito à educação inclusiva. Isso significa que:</p>
             <ul className="space-y-3 text-gray-700 leading-relaxed list-disc pl-5 mb-4">
               <li>Nenhuma escola, pública ou privada, pode recusar a matrícula de um aluno em razão de sua deficiência.</li>
@@ -317,35 +330,35 @@ export default function EbookPage() {
             </ul>
             <p className="text-gray-700 leading-relaxed mb-8">Conhecer esses direitos transforma a conversa com a escola. Em vez de pedir um favor, a família está exigindo o cumprimento da lei. Isso muda a dinâmica de poder e estabelece uma base sólida para a negociação de adaptações.</p>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">4.2 A Comunicação Família-Escola: A Chave para o Sucesso</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">4.2 A comunicação família-escola: a chave para o sucesso</h3>
             <div className="space-y-5 text-gray-700 leading-relaxed mb-4">
               <p>A inclusão efetiva depende de uma colaboração contínua e transparente entre a família e a equipe escolar. A família é a maior especialista em seu filho. A escola é a especialista em pedagogia. A união desses dois conhecimentos é o que cria um plano de sucesso.</p>
               <p>Para que essa comunicação seja produtiva, os pais devem se preparar para as reuniões escolares. Em vez de chegar com uma lista de queixas, é mais eficaz chegar com uma pauta construtiva. Um checklist de informações a serem compartilhadas pode incluir:</p>
             </div>
             <ul className="space-y-3 text-gray-700 leading-relaxed list-disc pl-5 mb-4">
-              <li><strong>Perfil da Criança:</strong> Um resumo claro do diagnóstico, das comorbidades e dos relatórios médicos e terapêuticos.</li>
-              <li><strong>Pontos Fortes e Interesses:</strong> Destacar os talentos e hiperfocos da criança, que podem ser usados como pontes para a aprendizagem.</li>
-              <li><strong>Gatilhos e Desafios:</strong> Listar os principais gatilhos sensoriais e emocionais da criança (ex: barulho do sinal, multidões no pátio) e as dificuldades específicas (ex: motricidade fina, interação no recreio).</li>
-              <li><strong>Estratégias que Funcionam:</strong> Compartilhar as ferramentas de regulação que a criança já utiliza com sucesso em casa ou na terapia (ex: usar um abafador de som, ter um objeto de apego, precisar de pausas para movimento).</li>
+              <li><strong>Perfil da criança:</strong> um resumo claro do diagnóstico, das comorbidades e dos relatórios médicos e terapêuticos.</li>
+              <li><strong>Pontos fortes e interesses:</strong> destacar os talentos e hiperfocos da criança, que podem ser usados como pontes para a aprendizagem.</li>
+              <li><strong>Gatilhos e desafios:</strong> listar os principais gatilhos sensoriais e emocionais da criança (ex: barulho do sinal, multidões no pátio) e as dificuldades específicas (ex: motricidade fina, interação no recreio).</li>
+              <li><strong>Estratégias que funcionam:</strong> compartilhar as ferramentas de regulação que a criança já utiliza com sucesso em casa ou na terapia (ex: usar um abafador de som, ter um objeto de apego, precisar de pausas para movimento).</li>
             </ul>
             <p className="text-gray-700 leading-relaxed mb-8">Essa abordagem proativa posiciona os pais como parceiros colaborativos, não como adversários, facilitando a criação de um Plano Educacional Individualizado (PEI) que seja verdadeiramente eficaz.</p>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">4.3 Estratégias Práticas para a Sala de Aula</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">4.3 Estratégias práticas para a sala de aula</h3>
             <div className="space-y-6 text-gray-700 leading-relaxed mb-8">
               <div>
-                <h4 className="font-bold text-[#2E86C1] mb-2">Adaptações Ambientais e Sensoriais</h4>
+                <h4 className="font-bold text-[#2E86C1] mb-2">Adaptações ambientais e sensoriais</h4>
                 <p>O ambiente físico da sala de aula pode ser avassalador. Sugestões simples podem fazer uma grande diferença: permitir o uso de abafadores de som durante atividades barulhentas; oferecer um assento longe de janelas ou corredores movimentados para reduzir distrações; permitir o uso de "fidgets" ou objetos de apego para autorregulação; e reduzir a poluição visual na sala, mantendo as paredes mais limpas.</p>
               </div>
               <div>
-                <h4 className="font-bold text-[#2E86C1] mb-2">Recursos Visuais e Estrutura</h4>
+                <h4 className="font-bold text-[#2E86C1] mb-2">Recursos visuais e estrutura</h4>
                 <p>Como já mencionado, a previsibilidade é calmante. Sugerir que o professor utilize um quadro de rotina visual para toda a turma pode beneficiar não apenas a criança neurodivergente, mas todos os alunos. Para tarefas complexas, dividir as instruções em passos visuais (com imagens ou texto curto) torna o processo menos intimidante e mais gerenciável.</p>
               </div>
               <div>
-                <h4 className="font-bold text-[#2E86C1] mb-2">Aproveitando o Hiperfoco como Ferramenta Pedagógica</h4>
+                <h4 className="font-bold text-[#2E86C1] mb-2">Aproveitando o hiperfoco como ferramenta pedagógica</h4>
                 <p>O hiperfoco, muitas vezes visto como um obstáculo, pode ser a maior ferramenta de engajamento da criança. Se o aluno é fascinado por dinossauros, a matemática pode ser ensinada calculando o tamanho dos fósseis; a escrita, através da criação de histórias sobre o período Jurássico. Os pais devem compartilhar esses interesses com os professores e sugerir formas criativas de integrá-los ao currículo.</p>
               </div>
               <div>
-                <h4 className="font-bold text-[#2E86C1] mb-2">Manejo Social e Inclusão entre Pares</h4>
+                <h4 className="font-bold text-[#2E86C1] mb-2">Manejo social e inclusão entre pares</h4>
                 <p>A inclusão verdadeira acontece quando os colegas também são envolvidos. Os pais podem sugerir que a escola promova atividades que ensinem sobre diversidade e empatia. O professor pode atuar como mediador, ajudando a criança a iniciar interações, a entender as regras não escritas das brincadeiras e ensinando os outros alunos a como se comunicar e interagir de forma respeitosa com seu colega neurodivergente.</p>
                 <p className="mt-4">A luta pela inclusão escolar é, sem dúvida, desgastante. Ao se armarem com conhecimento sobre direitos, estratégias de comunicação e sugestões práticas, os pais deixam de ser apenas espectadores passivos e se tornam os defensores mais eficazes de seus filhos, construindo pontes em vez de muros com a comunidade escolar.</p>
               </div>
@@ -360,46 +373,46 @@ export default function EbookPage() {
               <div className="w-1.5 h-16 bg-[#2E86C1] rounded-full mr-4 mt-1 shrink-0"></div>
               <div>
                 <p className="text-sm font-bold text-[#2E86C1] uppercase tracking-wider mb-1">Capítulo 5</p>
-                <h2 className="text-3xl font-extrabold m-0 leading-tight">Cuidando de Quem Cuida: Fortalecendo a Saúde Mental da Família</h2>
+                <h2 className="text-3xl font-extrabold m-0 leading-tight">Cuidando de quem cuida: fortalecendo a saúde mental da família</h2>
               </div>
             </div>
             
             <blockquote className="border-l-4 border-[#A9CCE3] pl-4 italic text-gray-600 text-lg my-6 bg-white p-4 rounded-r-lg shadow-sm">
-              "O autocuidado não é sobre fugir das suas responsabilidades; é sobre garantir que você tenha recursos para cumpri-las de forma eficaz e sustentável."
+              "O autocuidado não é sobre fugir das suas responsabilidades, mas sobre garantir que você tenha recursos para cumpri-las de forma eficaz e sustentável."
             </blockquote>
             
             <p className="text-gray-700 leading-relaxed mb-8">Em toda a jornada da neurodiversidade, há um elemento central que, se negligenciado, pode comprometer todo o sistema de apoio: o bem-estar do cuidador. A dedicação em tempo integral, a carga emocional, as batalhas por direitos e a navegação em um sistema de saúde complexo cobram um preço. Este capítulo é dedicado a você, cuidador. Ele busca validar sua experiência, desconstruir mitos prejudiciais e oferecer estratégias concretas para que você possa cuidar de si mesmo com a mesma dedicação com que cuida do seu filho.</p>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">5.1 A Realidade do Cuidador: Dados e Validação</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">5.1 A realidade do cuidador: dados e validação</h3>
             <div className="space-y-5 text-gray-700 leading-relaxed mb-8">
               <p>Os números pintam um quadro claro da sobrecarga. Um estudo divulgado pela Genial Care revelou que 86% dos cuidadores de crianças com autismo no Brasil são mães. Dentre elas, 68% relatam não ter tempo para si mesmas, e 47% carregam um sentimento de culpa pela condição de seus filhos. Outras pesquisas mostram que pais de crianças com TEA e TDAH apresentam taxas significativamente mais altas de estresse, ansiedade e depressão.</p>
               <p>É crucial entender que esses sentimentos – a exaustão, a frustração, o isolamento, a culpa – não são um sinal de fraqueza ou de falta de amor. São uma resposta humana e compreensível a uma situação de estresse crônico e de alta demanda. A sociedade muitas vezes impõe uma narrativa da "mãe guerreira", uma figura heroica que sacrifica tudo pelo filho. Embora bem-intencionada, essa imagem pode ser tóxica. Ela cria uma pressão para ser infalível e silencia a dor, tornando ainda mais difícil para as mães admitirem que estão sofrendo e que precisam de ajuda. Este capítulo oferece uma contra-narrativa: você não precisa ser uma guerreira invencível. Você precisa ser uma cuidadora saudável e sustentável.</p>
             </div>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">5.2 Identificando o Burnout do Cuidador</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">5.2 Identificando o burnout do cuidador</h3>
             <p className="text-gray-700 leading-relaxed mb-4">O <em>burnout</em> não é apenas cansaço. É um estado de esgotamento físico, mental e emocional profundo, causado pela exposição prolongada a situações de alto estresse. Reconhecer os sinais é o primeiro passo para buscar ajuda. Eles incluem:</p>
             <ul className="space-y-3 text-gray-700 leading-relaxed list-disc pl-5 mb-4">
-              <li><strong>Exaustão Crônica:</strong> Sentir-se cansado o tempo todo, mesmo após dormir.</li>
-              <li><strong>Distanciamento Emocional:</strong> Sentir-se apático, cínico ou desconectado da criança e de outras pessoas.</li>
-              <li><strong>Sentimento de Ineficácia:</strong> A sensação de que nada do que você faz é bom o suficiente, acompanhada de uma baixa autoestima como cuidador.</li>
-              <li><strong>Sintomas Físicos:</strong> Dores de cabeça frequentes, problemas gastrointestinais, maior suscetibilidade a doenças.</li>
-              <li><strong>Irritabilidade e Ansiedade:</strong> Ter "pavio curto", sentir-se constantemente no limite ou preocupado.</li>
-              <li><strong>Isolamento Social:</strong> Afastar-se de amigos, familiares e atividades que antes davam prazer.</li>
+              <li><strong>Exaustão crônica:</strong> sentir-se cansado o tempo todo, mesmo após dormir.</li>
+              <li><strong>Distanciamento emocional:</strong> sentir-se apático, cínico ou desconectado da criança e de outras pessoas.</li>
+              <li><strong>Sentimento de ineficácia:</strong> a sensação de que nada do que você faz é bom o suficiente, acompanhada de uma baixa autoestima como cuidador.</li>
+              <li><strong>Sintomas físicos:</strong> dores de cabeça frequentes, problemas gastrointestinais, maior suscetibilidade a doenças.</li>
+              <li><strong>Irritabilidade e ansiedade:</strong> ter "pavio curto", sentir-se constantemente no limite ou preocupado.</li>
+              <li><strong>Isolamento social:</strong> afastar-se de amigos, familiares e atividades que antes davam prazer.</li>
             </ul>
             <p className="text-gray-700 leading-relaxed mb-8">Se você se identifica com vários desses sinais, não ignore. É um alerta de que seus recursos estão se esgotando e que é hora de reabastecer.</p>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">5.3 O Autocuidado não é Luxo, é Estratégia de Sobrevivência</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">5.3 O Autocuidado não é luxo, é estratégia de sobrevivência</h3>
             <div className="space-y-5 text-gray-700 leading-relaxed mb-8">
               <p>Em meio a uma rotina de terapias, consultas médicas e desafios diários, a ideia de "autocuidado" pode parecer um luxo inatingível ou até mesmo um ato de egoísmo. É preciso reformular essa crença. O autocuidado não é sobre fugir das suas responsabilidades; é sobre garantir que você tenha recursos para cumpri-las de forma eficaz e sustentável.</p>
               <p>Pense na metáfora da máscara de oxigênio no avião: você precisa colocar a sua primeiro antes de ajudar os outros. Um cuidador regulado é a ferramenta de intervenção mais poderosa que uma criança pode ter. Sua calma ajuda a regular a criança. Sua resiliência modela a resiliência dela. Sua saúde mental é a base sobre a qual o bem-estar de toda a família é construído. Portanto, cuidar de si mesmo é uma das coisas mais importantes que você pode fazer <em>pelo seu filho</em>.</p>
             </div>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">5.4 Estratégias Práticas de Autocuidado e Resiliência</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">5.4 Estratégias práticas de autocuidado e resiliência</h3>
             <ul className="space-y-4 text-gray-700 leading-relaxed list-disc pl-5 mb-4">
-              <li><strong>Construa sua Tribo:</strong> O isolamento é um dos maiores fatores de risco para o <em>burnout</em>. Conectar-se com outros pais que vivem uma realidade semelhante é vital. Busque grupos de apoio, presenciais ou online, como os promovidos por associações. Compartilhar experiências, trocar conselhos e simplesmente ser compreendido sem julgamentos tem um poder terapêutico imenso.</li>
-              <li><strong>Incorpore Micro-Pausas de Regulação:</strong> Você não precisa de uma hora para meditar. Cinco minutos podem ser suficientes. Experimente a técnica da "respiração quadrada": inspire contando até 4, segure o ar contando até 4, expire contando até 4, e espere contando até 4. Repita por alguns minutos. Fazer isso no carro antes de buscar seu filho na escola ou no banheiro pode ajudar a zerar o sistema nervoso.</li>
-              <li><strong>Aprenda a Pedir e Aceitar Ajuda:</strong> Ninguém consegue fazer isso sozinho. Normalizar o ato de pedir ajuda é fundamental. Isso pode significar pedir a um familiar para ficar com seu filho por duas horas para que você possa ir ao supermercado sozinho, ou buscar terapia para você mesmo. A terapia individual pode ser um espaço seguro para processar suas emoções, lidar com a culpa e desenvolver estratégias de enfrentamento.</li>
-              <li><strong>Ressignifique a Culpa:</strong> O sentimento de culpa é um companheiro quase constante para muitos cuidadores. Lembre-se: você está fazendo o melhor que pode com os recursos que tem no momento. Pratique a autocompaixão. Fale consigo mesmo como falaria com um amigo querido que estivesse passando pela mesma situação. A culpa é um peso morto; a autocompaixão é um combustível para a resiliência.</li>
+              <li><strong>Construa sua tribo:</strong> o isolamento é um dos maiores fatores de risco para o <em>burnout</em>. Conectar-se com outros pais que vivem uma realidade semelhante é vital. Busque grupos de apoio, presenciais ou online, como os promovidos por associações. Compartilhar experiências, trocar conselhos e simplesmente ser compreendido sem julgamentos tem um poder terapêutico imenso.</li>
+              <li><strong>Incorpore micro-pausas de regulação:</strong> você não precisa de uma hora para meditar. Cinco minutos podem ser suficientes. Experimente a técnica da "respiração quadrada": inspire contando até 4, segure o ar contando até 4, expire contando até 4, e espere contando até 4. Repita por alguns minutos. Fazer isso no carro antes de buscar seu filho na escola ou no banheiro pode ajudar a zerar o sistema nervoso.</li>
+              <li><strong>Aprenda a pedir e aceitar ajuda:</strong> ninguém consegue fazer isso sozinho. Normalizar o ato de pedir ajuda é fundamental. Isso pode significar pedir a um familiar para ficar com seu filho por duas horas para que você possa ir ao supermercado sozinho, ou buscar terapia para você mesmo. A terapia individual pode ser um espaço seguro para processar suas emoções, lidar com a culpa e desenvolver estratégias de enfrentamento.</li>
+              <li><strong>Ressignifique a culpa:</strong> o sentimento de culpa é um companheiro quase constante para muitos cuidadores. Lembre-se: você está fazendo o melhor que pode com os recursos que tem no momento. Pratique a autocompaixão. Fale consigo mesmo como falaria com um amigo querido que estivesse passando pela mesma situação. A culpa é um peso morto; a autocompaixão é um combustível para a resiliência.</li>
             </ul>
             <p className="text-gray-700 leading-relaxed mb-8">Cuidar de quem cuida não é um capítulo final ou um apêndice. É o coração da jornada. Ao priorizar seu próprio bem-estar, você garante que terá a força, a paciência e a clareza mental para continuar sendo o porto seguro que seu filho precisa.</p>
           </section>
@@ -412,12 +425,12 @@ export default function EbookPage() {
               <div className="w-1.5 h-16 bg-[#2E86C1] rounded-full mr-4 mt-1 shrink-0"></div>
               <div>
                 <p className="text-sm font-bold text-[#2E86C1] uppercase tracking-wider mb-1">Capítulo 6</p>
-                <h2 className="text-3xl font-extrabold m-0 leading-tight">Horizontes em Expansão: Preparando para uma Vida Adulta Autônoma e Plena</h2>
+                <h2 className="text-3xl font-extrabold m-0 leading-tight">Horizontes em expansão: preparando para uma vida adulta autônoma e plena</h2>
               </div>
             </div>
             
             <blockquote className="border-l-4 border-[#A9CCE3] pl-4 italic text-gray-600 text-lg my-6 bg-white p-4 rounded-r-lg shadow-sm">
-              "A autonomia e uma vida adulta plena não acontecem por acaso; elas são construídas, tijolo por tijolo, a partir da infância."
+              "A autonomia e uma vida adulta plena não acontecem por acaso. Elas são construídas, tijolo por tijolo, a partir da infância."
             </blockquote>
             
             <div className="space-y-5 text-gray-700 leading-relaxed mb-8">
@@ -425,29 +438,29 @@ export default function EbookPage() {
               <p>Este capítulo final busca abordar diretamente esse medo. O objetivo não é oferecer falsas garantias, mas sim um plano de ação proativo. A autonomia e uma vida adulta plena não acontecem por acaso; elas são construídas, tijolo por tijolo, a partir da infância. Ao transformar a ansiedade em planejamento, este capítulo visa aliviar o peso do futuro e mostrar um caminho de esperança e possibilidade.</p>
             </div>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">6.1 A Transição para a Vida Adulta: Um Desafio Planejado</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">6.1 A transição para a vida adulta: um desafio planejado</h3>
             <div className="space-y-5 text-gray-700 leading-relaxed mb-8">
               <p>A transição da adolescência para a vida adulta é um período complexo para qualquer jovem, envolvendo novas responsabilidades em educação, trabalho, independência e relacionamentos sociais. Para indivíduos no espectro autista, essa fase apresenta obstáculos adicionais e, infelizmente, o Brasil ainda possui poucos recursos e pesquisas dedicados a apoiar essa transição. A falta de preparação adequada, a escassez de programas especializados e a compreensão limitada das necessidades dos adultos autistas resultam em altas taxas de desemprego e dificuldades de socialização.</p>
               <p>Reconhecer essa realidade não é para desanimar, mas para enfatizar a importância de um planejamento precoce e intencional. A família, junto com a equipe de apoio, precisa começar a pensar na vida adulta muito antes de ela chegar, focando no desenvolvimento gradual de habilidades para a independência.</p>
             </div>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">6.2 Construindo a Autonomia no Dia a Dia (Desde Cedo)</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">6.2 Construindo a autonomia no dia a dia (desde cedo)</h3>
             <ul className="space-y-4 text-gray-700 leading-relaxed list-disc pl-5 mb-8">
-              <li><strong>Habilidades da Vida Diária:</strong> Desde cedo, envolva a criança em tarefas domésticas apropriadas para sua idade e capacidade. Isso pode começar com guardar os próprios brinquedos e evoluir para preparar um lanche simples, usar a máquina de lavar ou ajudar com as compras. O objetivo é desenvolver competências práticas essenciais para uma vida independente.</li>
-              <li><strong>Gestão Financeira:</strong> A educação financeira pode começar de forma concreta, com uma mesada para aprender a poupar para um item desejado. Na adolescência, pode-se introduzir o conceito de orçamento, o uso de um cartão de débito pré-pago e o pagamento de pequenas contas, sempre com supervisão e apoio.</li>
-              <li><strong>Navegação na Comunidade:</strong> Pratique o uso de transporte público, ensine a pedir informações, a ir a uma padaria e a fazer uma compra. Essas experiências constroem confiança e familiaridade com o mundo fora de casa.</li>
+              <li><strong>Habilidades da vida diária:</strong> desde cedo, envolva a criança em tarefas domésticas apropriadas para sua idade e capacidade. Isso pode começar com guardar os próprios brinquedos e evoluir para preparar um lanche simples, usar a máquina de lavar ou ajudar com as compras. O objetivo é desenvolver competências práticas essenciais para uma vida independente.</li>
+              <li><strong>Gestão financeira:</strong> a educação financeira pode começar de forma concreta, com uma mesada para aprender a poupar para um item desejado. Na adolescência, pode-se introduzir o conceito de orçamento, o uso de um cartão de débito pré-pago e o pagamento de pequenas contas, sempre com supervisão e apoio.</li>
+              <li><strong>Navegação na comunidade:</strong> pratique o uso de transporte público, ensine a pedir informações, a ir a uma padaria e a fazer uma compra. Essas experiências constroem confiança e familiaridade com o mundo fora de casa.</li>
             </ul>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">6.3 Educação Superior e Mercado de Trabalho</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">6.3 Educação superior e mercado de trabalho</h3>
             <ul className="space-y-4 text-gray-700 leading-relaxed list-disc pl-5 mb-8">
-              <li><strong>Educação:</strong> Ambientes universitários podem ser desafiadores devido às demandas sociais e de organização. É importante pesquisar instituições que ofereçam serviços de apoio a alunos com deficiência e trabalhar em estratégias de organização, gerenciamento de tempo e autoadvocacia (a capacidade do jovem de comunicar suas próprias necessidades e solicitar adaptações).</li>
-              <li><strong>Mercado de Trabalho:</strong> A busca por emprego é um grande desafio. É crucial focar nas potencialidades e interesses do indivíduo. Programas de treinamento profissional adaptados e mentoria podem ser extremamente úteis. No ambiente de trabalho, "adaptações razoáveis" são um direito e podem incluir um espaço de trabalho mais silencioso, instruções por escrito em vez de verbais, ou horários flexíveis. Campanhas de conscientização são necessárias para desmistificar o autismo adulto e mostrar aos empregadores o valor que funcionários neurodivergentes podem agregar, com sua atenção aos detalhes, lealdade e pensamento inovador.</li>
+              <li><strong>Educação:</strong> ambientes universitários podem ser desafiadores devido às demandas sociais e de organização. É importante pesquisar instituições que ofereçam serviços de apoio a alunos com deficiência e trabalhar em estratégias de organização, gerenciamento de tempo e autoadvocacia (a capacidade do jovem de comunicar suas próprias necessidades e solicitar adaptações).</li>
+              <li><strong>Mercado de trabalho:</strong> a busca por emprego é um grande desafio. É crucial focar nas potencialidades e interesses do indivíduo. Programas de treinamento profissional adaptados e mentoria podem ser extremamente úteis. No ambiente de trabalho, "adaptações razoáveis" são um direito e podem incluir um espaço de trabalho mais silencioso, instruções por escrito em vez de verbais, ou horários flexíveis. Campanhas de conscientização são necessárias para desmistificar o autismo adulto e mostrar aos empregadores o valor que funcionários neurodivergentes podem agregar, com sua atenção aos detalhes, lealdade e pensamento inovador.</li>
             </ul>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">6.4 Relacionamentos e Vida Social</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">6.4 Relacionamentos e vida social</h3>
             <p className="text-gray-700 leading-relaxed mb-8">A necessidade de conexão humana é universal. Apoiar o desenvolvimento de relacionamentos na vida adulta é fundamental. Isso pode envolver a participação em grupos de interesse (como clubes de jogos, grupos de caminhada ou aulas de arte), onde a conexão pode surgir a partir de uma paixão compartilhada, diminuindo a pressão da interação social "tradicional". É importante também oferecer educação sobre relacionamentos amorosos e sexualidade de forma clara, concreta e respeitosa.</p>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">6.5 A Invisibilidade do Autismo Adulto e a Importância do Diagnóstico Tardio</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">6.5 A invisibilidade do Autismo adulto e a importância do diagnóstico tardio</h3>
             <div className="space-y-5 text-gray-700 leading-relaxed mb-8">
               <p>É cada vez mais comum que adultos recebam seu diagnóstico de TEA ou TDAH tardiamente, muitas vezes após um filho ser diagnosticado. Essa "geração perdida" cresceu sem entender a razão de suas dificuldades e sem o apoio adequado. O diagnóstico na vida adulta pode ser um momento de imenso alívio e auto-compreensão, recontextualizando uma vida inteira de desafios.</p>
               <p>A crescente visibilidade de adultos autistas, incluindo figuras públicas e influenciadores, ajuda a combater o estigma e a mostrar a diversidade do espectro. Isso reforça a necessidade de políticas públicas que não apenas apoiem as crianças, mas que garantam a continuidade do cuidado ao longo da vida, com capacitação do sistema de saúde para o diagnóstico e tratamento de adultos.</p>
@@ -463,7 +476,7 @@ export default function EbookPage() {
               <div className="w-1.5 h-12 bg-[#2E86C1] rounded-full mr-4 mt-1 shrink-0"></div>
               <div>
                 <p className="text-sm font-bold text-[#2E86C1] uppercase tracking-wider mb-1">Conclusão</p>
-                <h2 className="text-3xl font-extrabold m-0 leading-tight">Um Futuro de Potencial e Inclusão</h2>
+                <h2 className="text-3xl font-extrabold m-0 leading-tight">Um futuro de potencial e inclusão</h2>
               </div>
             </div>
             
@@ -487,27 +500,27 @@ export default function EbookPage() {
               <div className="w-1.5 h-12 bg-[#2E86C1] rounded-full mr-4 mt-1 shrink-0"></div>
               <div>
                 <p className="text-sm font-bold text-[#2E86C1] uppercase tracking-wider mb-1">Apêndices</p>
-                <h2 className="text-3xl font-extrabold m-0 leading-tight">Apêndices de Acesso Rápido</h2>
+                <h2 className="text-3xl font-extrabold m-0 leading-tight">Apêndices de acesso rápido</h2>
               </div>
             </div>
             
             <blockquote className="border-l-4 border-[#A9CCE3] pl-4 italic text-gray-600 text-lg my-6 bg-white p-4 rounded-r-lg shadow-sm">
-              "Estes apêndices foram criados como ferramentas práticas... transformando a teoria do livro em ação imediata."
+              "Estes apêndices foram criados como ferramentas práticas, transformando a teoria do livro em ação imediata."
             </blockquote>
             
             <p className="text-gray-700 leading-relaxed mb-8">Estes apêndices foram criados como ferramentas práticas e de referência rápida para serem usadas no dia a dia, transformando a teoria do livro em ação imediata.</p>
             
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">Glossário de Termos Essenciais</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">Glossário de termos essenciais</h3>
             <ul className="space-y-4 text-gray-700 leading-relaxed list-disc pl-5 mb-8">
-              <li><strong>Comorbidade:</strong> A presença de uma ou mais condições de saúde (física ou mental) além do diagnóstico principal. Ex: Ansiedade como comorbidade do TEA.</li>
-              <li><strong>Funções Executivas:</strong> Conjunto de habilidades mentais que nos ajudam a gerenciar tarefas e atingir metas. Incluem planejamento, organização, memória de trabalho, controle de impulsos e flexibilidade cognitiva. Frequentemente afetadas no TDAH e no TEA.</li>
-              <li><strong>Hiperfoco:</strong> Um estado de concentração intensa em um assunto ou atividade de grande interesse, comum no TEA e no TDAH. Pode ser uma grande força quando canalizado.</li>
-              <li><strong>Stimming (Comportamento Autoestimulatório):</strong> Movimentos repetitivos (ex: balançar o corpo, bater as mãos) que ajudam a pessoa a regular suas emoções e seu sistema sensorial. É uma ferramenta de enfrentamento, não um comportamento a ser suprimido.</li>
-              <li><strong>Ecolalia:</strong> A repetição de palavras ou frases ouvidas. Pode ser imediata ou tardia. É uma forma de comunicação e processamento da linguagem, não apenas uma repetição sem sentido.</li>
-              <li><strong>Co-regulação:</strong> O processo pelo qual um indivíduo ajuda a acalmar e regular o estado emocional de outro através de sua própria presença calma e responsiva. Fundamental no manejo de crises.</li>
+              <li><strong>Comorbidade:</strong> a presença de uma ou mais condições de saúde (física ou mental) além do diagnóstico principal. Ex: Ansiedade como comorbidade do TEA.</li>
+              <li><strong>Funções Executivas:</strong> conjunto de habilidades mentais que nos ajudam a gerenciar tarefas e atingir metas. Incluem planejamento, organização, memória de trabalho, controle de impulsos e flexibilidade cognitiva. Frequentemente afetadas no TDAH e no TEA.</li>
+              <li><strong>Hiperfoco:</strong> um estado de concentração intensa em um assunto ou atividade de grande interesse, comum no TEA e no TDAH. Pode ser uma grande força quando canalizado.</li>
+              <li><strong>Stimming (Comportamento Autoestimulatório):</strong> movimentos repetitivos (ex: balançar o corpo, bater as mãos) que ajudam a pessoa a regular suas emoções e seu sistema sensorial. É uma ferramenta de enfrentamento, não um comportamento a ser suprimido.</li>
+              <li><strong>Ecolalia:</strong> a repetição de palavras ou frases ouvidas. Pode ser imediata ou tardia. É uma forma de comunicação e processamento da linguagem, não apenas uma repetição sem sentido.</li>
+              <li><strong>Co-regulação:</strong> o processo pelo qual um indivíduo ajuda a acalmar e regular o estado emocional de outro através de sua própria presença calma e responsiva. Fundamental no manejo de crises.</li>
             </ul>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">Recursos Confiáveis no Brasil</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">Recursos confiáveis no Brasil</h3>
             <p className="text-gray-700 leading-relaxed mb-4">Filtrar informações na internet pode ser desafiador. Esta lista inclui organizações e influenciadores que produzem conteúdo responsável e baseado em evidências.</p>
             <ul className="space-y-4 text-gray-700 leading-relaxed list-disc pl-5 mb-8">
               <li><strong>Associações e Instituições:</strong>
@@ -517,7 +530,7 @@ export default function EbookPage() {
                   <li><strong>Autistas Brasil:</strong> Organização que promove eventos e debates sobre neurodiversidade e direitos, como o Fórum DiversaMente.</li>
                 </ul>
               </li>
-              <li><strong>Influenciadores e Criadores de Conteúdo:</strong>
+              <li><strong>Influenciadores e criadores de conteúdo:</strong>
                 <ul className="list-circle pl-5 mt-2 space-y-2">
                   <li><strong>Sophia Mendonça (Mundo Autista):</strong> Autora e youtuber, uma das principais vozes sobre autismo, especialmente em mulheres, no Brasil.</li>
                   <li><strong>Família Tagarela (@mamaetagarela):</strong> Perfil familiar que aborda TDAH e autismo com dicas de parentalidade e humor.</li>
@@ -527,9 +540,9 @@ export default function EbookPage() {
               </li>
             </ul>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-10 mb-4">Checklists Práticos para o Dia a Dia</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-10 mb-4">Checklists práticos para o dia a dia</h3>
             
-            <h4 className="font-bold text-[#2E86C1] mb-2">Checklist 1: Kit de Sobrevivência Sensorial para Passeios</h4>
+            <h4 className="font-bold text-[#2E86C1] mb-2">Checklist 1: kit de sobrevivência sensorial para passeios</h4>
             <p className="text-gray-700 leading-relaxed mb-4">Monte uma pequena bolsa com itens que podem ajudar a prevenir ou manejar uma sobrecarga sensorial em ambientes públicos.</p>
             
             {/* UX: Checklists como labels interativos */}
@@ -549,7 +562,7 @@ export default function EbookPage() {
               ))}
             </div>
 
-            <h4 className="font-bold text-[#2E86C1] mb-2">Checklist 2: Modelo de Quadro de Rotina Visual Semanal</h4>
+            <h4 className="font-bold text-[#2E86C1] mb-2">Checklist 2: Modelo de quadro de rotina visual semanal</h4>
             <p className="text-gray-700 leading-relaxed mb-4">Use um quadro branco ou cartolina e crie cartões com figuras ou palavras para cada atividade principal.</p>
             
             {/* UX Otimizada: Tabelas viram Cards no Mobile */}
@@ -586,18 +599,18 @@ export default function EbookPage() {
               </div>
             </div>
 
-            <h4 className="font-bold text-[#2E86C1] mb-2">Checklist 3: Roteiro para a Reunião com a Escola</h4>
+            <h4 className="font-bold text-[#2E86C1] mb-2">Checklist 3: roteiro para a reunião com a escola</h4>
             <p className="text-gray-700 leading-relaxed mb-4">Organize suas ideias antes da reunião para garantir que todos os pontos importantes sejam abordados.</p>
             
             <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-8">
               {[
-                "Apresentação: Breve resumo do perfil do meu filho (diagnósticos, pontos fortes, interesses).",
-                "Objetivos da Reunião: O que eu espero alcançar? (Ex: Discutir adaptações para o recreio).",
-                "O que está funcionando: Comece com um feedback positivo para criar um tom colaborativo.",
-                "Desafios Observados: Descreva de forma objetiva (Ex: 'Tenho observado que ele volta muito agitado do recreio').",
-                "Sugestões de Estratégias: Apresente as estratégias que funcionam em casa/terapia.",
-                "Perguntas para a Escola: Como podemos trabalhar juntos? Quem é meu ponto de contato?",
-                "Próximos Passos: Definir um plano de ação claro, com responsáveis e prazos."
+                "Apresentação: breve resumo do perfil do meu filho (diagnósticos, pontos fortes, interesses).",
+                "Objetivos da reunião: o que eu espero alcançar? (Ex: discutir adaptações para o recreio).",
+                "O que está funcionando: comece com um feedback positivo para criar um tom colaborativo.",
+                "Desafios observados: descreva de forma objetiva (Ex: 'tenho observado que ele volta muito agitado do recreio').",
+                "Sugestões de estratégias: apresente as estratégias que funcionam em casa/terapia.",
+                "Perguntas para a escola: como podemos trabalhar juntos? Quem é meu ponto de contato?",
+                "Próximos passos: definir um plano de ação claro, com responsáveis e prazos."
               ].map((item, i) => (
                 <label key={i} className="flex items-start p-4 border-b border-gray-50 hover:bg-gray-50 cursor-pointer transition-colors active:bg-gray-100">
                   <input type="checkbox" className="w-6 h-6 mt-0.5 text-[#2E86C1] rounded border-gray-300 focus:ring-[#2E86C1]" />
@@ -606,10 +619,10 @@ export default function EbookPage() {
               ))}
             </div>
 
-            <h4 className="font-bold text-[#2E86C1] mb-4">Checklist 4: Plano de Ação para Manejo de Crises</h4>
+            <h4 className="font-bold text-[#2E86C1] mb-4">Checklist 4: plano de ação para manejo de crises</h4>
             <div className="space-y-4 mb-16">
               <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
-                <h5 className="font-bold text-[#0D2A4B] mb-2">Fase 1: Sinais de Alerta (Prevenção)</h5>
+                <h5 className="font-bold text-[#0D2A4B] mb-2">Fase 1: Sinais de Alerta (prevenção)</h5>
                 <ul className="text-gray-700 text-sm list-disc pl-5 space-y-1">
                   <li>Meu filho está mostrando: [Liste os sinais. Ex: balançar as mãos, ficar quieto demais].</li>
                   <li><strong>Ação:</strong> Reduzir a demanda. Oferecer uma pausa. Mudar de ambiente. Usar kit sensorial.</li>
