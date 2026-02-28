@@ -59,9 +59,49 @@ export default function EbookPage() {
       {/* Conteúdo Principal */}
       <main className="p-5 md:p-10 max-w-3xl mx-auto">
         
-        {/* INTRODUÇÃO */}
+       {/* CAPÍTULO 0: PREÂMBULO E INTRODUÇÃO */}
         {currentChapter === 0 && (
           <section id="introducao" className="animate-in fade-in duration-500">
+            
+            {/* ========================================== */}
+            {/* 1. PREÂMBULO (Boas-vindas e Alinhamento)   */}
+            {/* ========================================== */}
+            
+            {/* Card de Boas-Vindas (Famílias) */}
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-6 bg-[#EBF5FB] p-6 md:p-8 rounded-2xl border border-[#2E86C1]/20 shadow-sm mb-6">
+              <Image 
+                src="/miniatura_ebook_dr.png"
+                alt="Dr. Mauro Reis" 
+                width={100} 
+                height={100} 
+                className="rounded-full shadow-md shrink-0 border-4 border-white object-cover"
+              />
+              <div className="text-center md:text-left">
+                <h3 className="text-xl font-bold text-[#0D2A4B] mb-2">Bem-vindo(a)</h3>
+                <p className="text-gray-700 leading-relaxed italic">
+                  "Diariamente no meu consultório, recebo famílias repletas de amor, mas também de dúvidas, medos e exaustão. Escrevi este material para ser o seu porto seguro e um mapa claro nos momentos de incerteza."
+                </p>
+                <span className="block mt-4 font-bold text-[#2E86C1]">— Dr. Mauro Reis</span>
+              </div>
+            </div>
+            
+            {/* Aviso para Profissionais (B2B2C) */}
+            {/* Nota: Aumentei a margem inferior (mb-12) para criar um bom respiro antes do título */}
+            <div className="bg-[#F8F9F9] border-l-4 border-[#8E44AD] p-5 md:p-6 rounded-r-xl shadow-sm mb-12">
+              <h3 className="font-bold text-[#4A235A] text-lg mb-2 flex items-center gap-2">
+                🤝 Uma nota aos colegas de profissão
+              </h3>
+              <p className="text-gray-700 leading-relaxed text-sm md:text-base">
+                Se você é profissional de saúde, terapeuta ou educador, este material também é seu. Ele foi escrito com linguagem acessível para servir como uma <strong>ferramenta de psicoeducação na sua prática diária</strong>. Sinta-se à vontade para utilizar estas estratégias no seu espaço de atuação e compartilhar este guia com as famílias que você apoia.
+              </p>
+            </div>
+
+
+            {/* ========================================== */}
+            {/* 2. INÍCIO OFICIAL DO CONTEÚDO              */}
+            {/* ========================================== */}
+
+            {/* Cabeçalho */}
             <div className="flex items-start mb-8">
               <div className="w-1.5 h-12 bg-[#2E86C1] rounded-full mr-4 mt-1 shrink-0"></div>
               <div>
@@ -70,15 +110,40 @@ export default function EbookPage() {
               </div>
             </div>
             
-            <blockquote className="border-l-4 border-[#A9CCE3] pl-4 italic text-gray-600 text-lg my-6 bg-white p-4 rounded-r-lg shadow-sm">
+            {/* Frase de Destaque */}
+            <blockquote className="border-l-4 border-[#A9CCE3] pl-4 italic text-gray-600 text-lg my-8 bg-white p-4 rounded-r-lg shadow-sm">
               "Ao abraçar a neurodiversidade, passamos de um estado de luto por expectativas quebradas para um de curiosidade e esperança por um caminho diferente."
             </blockquote>
             
-            <div className="space-y-5 text-gray-700 leading-relaxed">
-              <p>Receber o diagnóstico de Transtorno do Espectro Autista (TEA) ou Transtorno de Déficit de Atenção e Hiperatividade (TDAH) de um filho é um momento que redefine a jornada de uma família. É um ponto de inflexão, frequentemente acompanhado por uma avalanche de emoções: o alívio por finalmente ter um nome para os desafios observados, a confusão diante de um vocabulário médico complexo, o medo do desconhecido e, para muitos, um sentimento de luto por um futuro que havia sido idealizado de outra forma. Este guia foi concebido a partir do profundo reconhecimento da complexidade desse momento. Ele não começa com estatísticas ou jargões clínicos, mas com um acolhimento. A sua jornada, com todas as suas incertezas e esperanças, é válida e compreendida.</p>
-              <p>O propósito deste material é servir como um mapa confiável para navegar neste novo território. A filosofia central que norteará cada página é a da <strong>neurodiversidade</strong>. Este não é um termo para amenizar a realidade dos desafios, mas um paradigma científico e social que nos convida a uma nova perspectiva. A neurodiversidade postula que as variações no desenvolvimento neurológico são uma parte natural da diversidade humana, assim como a diversidade étnica ou de orientação sexual. Em vez de enxergar o TEA e o TDAH unicamente como um conjunto de déficits a serem corrigidos, a neurodiversidade nos encoraja a compreender as diferentes formas de processar informações, interagir com o mundo e aprender, reconhecendo tanto os desafios quanto as potencialidades únicas que emergem dessas diferenças.</p>
-              <p>Muitas famílias, ao receberem o diagnóstico, sentem-se paralisadas não apenas pela falta de informação, mas pelo peso emocional da situação. A angústia e a desorientação podem tornar difícil absorver novos conhecimentos e tomar decisões cruciais. Por isso, o primeiro passo desta jornada conjunta não é sobrecarregar com dados, mas reorientar a perspectiva. Ao abraçar a neurodiversidade, passamos de um estado de luto por expectativas quebradas para um de curiosidade e esperança por um caminho diferente, mas igualmente cheio de potencial.</p>
-              <p>Ao longo dos próximos capítulos, este guia combinará os conhecimentos mais atuais da neurologia com estratégias práticas e um profundo entendimento da realidade cotidiana das famílias. O compromisso é transformar a incerteza em conhecimento, e o conhecimento em ação confiante. A estrutura foi pensada para acompanhá-lo passo a passo, desde a decodificação do funcionamento do cérebro do seu filho, passando pelo manejo dos desafios diários e pela parceria com a escola, até o cuidado com o bem-estar da própria família e o planejamento de um futuro autônomo e feliz. Esta é uma nova jornada, e ela começa aqui, com informação, acolhimento e empoderamento.</p>
+            {/* Corpo do Texto Revisado */}
+            <div className="space-y-5 text-gray-700 leading-relaxed text-lg mb-10">
+              <p>Receber o diagnóstico de Transtorno do Espectro Autista (TEA) ou Transtorno de Déficit de Atenção e Hiperatividade (TDAH) de um filho é um momento que redefine a jornada de uma família. É um ponto de inflexão, frequentemente acompanhado por uma avalanche de emoções: o alívio por finalmente ter um nome para os desafios, a confusão diante de um vocabulário médico complexo, o medo do desconhecido e um sentimento de luto por um futuro idealizado de outra forma. A sua jornada, com todas as suas incertezas e esperanças, é válida e compreendida.</p>
+              
+              <p>O propósito deste material é servir como um mapa confiável. A filosofia central que norteará cada página é a da <strong>neurodiversidade</strong>. Em vez de enxergar o TEA e o TDAH unicamente como um conjunto de déficits a serem corrigidos, somos encorajados a compreender as diferentes formas de processar informações, interagir e aprender, reconhecendo tanto os desafios quanto as potencialidades únicas da criança.</p>
+              
+              <p>Muitas famílias sentem-se paralisadas não apenas pela falta de informação, mas pelo peso emocional da situação. Por isso, o primeiro passo desta jornada não é sobrecarregar você com dados clínicos, mas reorientar a sua perspectiva para uma visão de potencial e desenvolvimento.</p>
+              
+              <p>Ao longo dos próximos capítulos, este guia combinará os conhecimentos mais atuais da neurologia com estratégias práticas e um profundo entendimento da realidade cotidiana das famílias. A estrutura foi pensada para acompanhá-lo passo a passo: desde a decodificação do funcionamento do cérebro do seu filho, passando pelo manejo dos desafios diários e pela parceria com a escola, até o cuidado com o seu próprio bem-estar.</p>
+            </div>
+
+            {/* Dica de UX (Estratégias de Leitura) */}
+            <div className="bg-white p-6 md:p-8 rounded-xl border-l-4 border-[#2E86C1] shadow-sm">
+              <h3 className="font-bold text-[#0D2A4B] text-lg mb-3 flex items-center gap-2">
+                💡 Como usar este guia?
+              </h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Este material foi desenhado para ser uma ferramenta prática no seu dia a dia. Sinta-se à vontade para consumi-lo da maneira que melhor se adaptar à sua rotina. Minhas sugestões são:
+              </p>
+              <ul className="space-y-4 text-gray-700">
+                <li className="flex items-start gap-3">
+                  <span className="text-[#2E86C1] font-bold mt-0.5">•</span>
+                  <span><strong>Leia no seu ritmo:</strong> Dividir a leitura, consumindo um pouco a cada dia, é um excelente caminho para absorver as estratégias e aplicá-las com calma.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[#2E86C1] font-bold mt-0.5">•</span>
+                  <span><strong>Consulte sempre que precisar:</strong> Mantenha a aba aberta no celular ou salve o link para revisar as orientações antes de ir à escola, em momentos de crise ou quando precisar de um mapa claro para seguir.</span>
+                </li>
+              </ul>
             </div>
           </section>
         )}
@@ -301,7 +366,7 @@ export default function EbookPage() {
             <p className="text-gray-700 leading-relaxed mb-4">O manejo de crises é reativo. A construção do bem-estar é proativa. Focar em três pilares fundamentais pode aumentar drasticamente a resiliência da criança e reduzir a frequência e a intensidade das crises.</p>
             <ul className="space-y-4 text-gray-700 leading-relaxed list-disc pl-5 mb-8">
               <li><strong>Sono:</strong> A desregulação do ritmo circadiano é comum em crianças com TEA. Estabelecer uma rotina de sono consistente e previsível é fundamental. Isso inclui um "ritual de desaceleração" antes de dormir (banho morno, leitura, música calma), garantir que o quarto seja escuro e silencioso, e evitar telas pelo menos uma hora antes de deitar. A higiene do sono é uma intervenção poderosa para melhorar o humor e a capacidade de regulação no dia seguinte.</li>
-              <li><strong>Nutrição:</strong> A alimentação tem um impacto direto na função cerebral. Muitos estudos apontam para a importância de nutrientes específicos. O Magnésio, por exemplo, ajuda na regulação do sistema nervoso; o Zinco participa da regulação da dopamina; e as vitaminas do complexo B são essenciais para a energia mental. O Ômega-3 é crucial para a saúde cerebral. Dada a alta prevalência de seletividade alimentar, a abordagem deve ser paciente e gradual, focando em introduzir novos alimentos sem pressão e, se necessário, com o apoio de um nutricionista para garantir que não haja deficiências e para explorar a suplementação adequada.</li>
+              <li><strong>Nutrição:</strong> A alimentação tem um impacto direto no desenvolvimento global, mas é fundamental desmistificar a ideia de que toda criança neurodivergente precisa de suplementação. A ciência médica atual é clara: vitaminas e suplementos só são indicados quando há uma deficiência clínica comprovada por exames. Dada a alta prevalência de seletividade alimentar, a abordagem deve ser paciente e gradual, focando em introduzir novos alimentos sem pressão. O acompanhamento com um pediatra ou nutricionista especializado é essencial para avaliar a real necessidade de intervenções, garantindo que a criança receba o que precisa de forma individualizada e com segurança.</li>
               <li><strong>Movimento:</strong> A atividade física é uma ferramenta poderosa para a regulação. Para crianças com TDAH, ajuda a gastar o excesso de energia e a melhorar o foco. Para crianças com TEA, atividades rítmicas como pular, balançar ou correr podem ser extremamente organizadoras para o sistema nervoso. Integrar "pausas para movimento" ao longo do dia pode prevenir o acúmulo de tensão que leva a crises.</li>
             </ul>
 
