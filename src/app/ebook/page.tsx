@@ -807,7 +807,7 @@ export default function EbookPage() {
                   className="inline-flex items-center justify-center gap-2 bg-[#2E86C1] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#1A5F8C] transition-colors shadow-sm active:scale-95"
                 >
                   <Instagram className="w-5 h-5 shrink-0" />
-                  Me siga no Instagram
+                  Me siga
                 </a>
               </div>
             </div>
