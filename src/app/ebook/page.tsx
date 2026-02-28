@@ -1,13 +1,20 @@
 'use client'
 
 import { useState, useEffect } from 'react';
-import { Menu, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { Menu, ChevronLeft, ChevronRight, CheckCircle2, X, Instagram } from 'lucide-react';
 import FeedbackForm from '@/components/ebook/FeedbackForm';
 import Image from 'next/image';
 
 export default function EbookPage() {
   const [currentChapter, setCurrentChapter] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const totalChapters = 8; // 0=Intro, 1-6=Capítulos, 7=Conclusão, 8=Apêndices
+
+  const chapterTitles = [
+    "Introdução", "1. Decodificando o Cérebro", "2. O Mapa do Cuidado", 
+    "3. A Caixa de Ferramentas", "4. Navegando a Escola", "5. Cuidando de Quem Cuida", 
+    "6. Horizontes em Expansão", "Conclusão", "Apêndices"
+  ];
 
   // Rola a tela para o topo sempre que mudar de capítulo
   useEffect(() => {
@@ -34,7 +41,9 @@ export default function EbookPage() {
             </h1>
           </div>
 
-          <button className="p-2 text-gray-600 hover:bg-gray-100 rounded-md shrink-0">
+          <button 
+          onClick={() => setIsMenuOpen(true)}
+          className="p-2 text-gray-600 hover:bg-gray-100 rounded-md shrink-0">
             <Menu className="w-6 h-6" />
           </button>
         </div>
@@ -651,6 +660,65 @@ export default function EbookPage() {
           </section>
         )}
       </main>
+
+      {/* --- INÍCIO DO MENU LATERAL (DRAWER) --- */}
+      {/* Fundo Escuro (Backdrop) */}
+      {isMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-60 backdrop-blur-sm transition-opacity"
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
+
+      {/* Gaveta Lateral */}
+      <div 
+        className={`fixed top-0 right-0 h-full w-72 bg-white z-70 shadow-2xl transform transition-transform duration-300 ease-in-out flex flex-col ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        {/* Cabeçalho do Menu */}
+        <div className="p-5 border-b flex justify-between items-center bg-[#0D2A4B] text-white">
+          <h2 className="font-bold text-lg">Índice</h2>
+          <button onClick={() => setIsMenuOpen(false)} className="p-2 hover:bg-white/10 rounded-full transition-colors">
+            <X className="w-6 h-6" />
+          </button>
+        </div>
+
+        {/* Lista de Capítulos */}
+        <div className="flex-1 overflow-y-auto py-2">
+          {chapterTitles.map((title, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setCurrentChapter(index);
+                setIsMenuOpen(false); // Fecha o menu ao clicar
+              }}
+              className={`w-full text-left px-5 py-4 border-b border-gray-50 flex items-center justify-between transition-colors ${
+                currentChapter === index 
+                  ? 'bg-[#EBF5FB] text-[#2E86C1] font-bold border-l-4 border-l-[#2E86C1]' 
+                  : 'text-gray-600 hover:bg-gray-50'
+              }`}
+            >
+              <span className="truncate pr-2">{title}</span>
+              {currentChapter === index && <ChevronRight className="w-4 h-4 shrink-0" />}
+            </button>
+          ))}
+        </div>
+
+        {/* Rodapé do Menu: Instagram */}
+        <div className="p-5 border-t bg-gray-50">
+          <a 
+            href="https://www.instagram.com/dr.mauroreis/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 w-full bg-linear-to-r from-[#833AB4] via-[#FD1D1D] to-[#F56040] text-white py-3.5 rounded-lg font-bold shadow-sm hover:opacity-90 transition-opacity active:scale-95"
+          >
+            <Instagram className="w-5 h-5" />
+            Siga o Dr. Mauro Reis
+          </a>
+        </div>
+      </div>
+      {/* --- FIM DO MENU LATERAL --- */}
 
       {/* Navegação Inferior (Rodapé Fixo Mobile) */}
       <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 p-4 flex justify-between items-center z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
