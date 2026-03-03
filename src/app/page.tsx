@@ -11,7 +11,7 @@ export default function LandingPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setIsLoading(true);
     setErrorMsg('');
@@ -22,8 +22,15 @@ export default function LandingPage() {
     const result = await captureLead(formData);
 
     if (result.success) {
-      // Se o cookie foi gerado com sucesso, manda para o e-book!
-      router.push('/ebook');
+      // 1. Dispara o evento de conversão pro Umami com segurança
+      if (typeof window !== 'undefined' && (window as any).umami) {
+        (window as any).umami.track('lead_captured');
+      }
+
+      // 2. Só então, com o cookie gerado e a métrica salva, manda para o e-book!
+      setTimeout(() => {
+        router.push('/ebook');
+      }, 300);
     } else {
       setErrorMsg(result.message || 'Ocorreu um erro.');
       setIsLoading(false);
@@ -60,7 +67,7 @@ export default function LandingPage() {
               <input 
                 type="text" id="nome" name="nome" required 
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#2E86C1] focus:border-transparent outline-none transition-all text-gray-900"
-                placeholder="Ex: João da Silva"
+                placeholder="Ex: Maria da Silva"
               />
             </div>
 
@@ -69,7 +76,7 @@ export default function LandingPage() {
               <input 
                 type="email" id="email" name="email" required 
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#2E86C1] focus:border-transparent outline-none transition-all text-gray-900"
-                placeholder="Ex: joao@email.com"
+                placeholder="Ex: maria@email.com"
               />
             </div>
 
@@ -78,7 +85,7 @@ export default function LandingPage() {
               <input 
                 type="tel" id="whatsapp" name="whatsapp" required 
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#2E86C1] focus:border-transparent outline-none transition-all text-gray-900"
-                placeholder="(11) 99999-9999"
+                placeholder="(21) 99999-9999"
               />
             </div>
 

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
+import Head from "next/head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,14 +21,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="pt-BR">
+      <head>
+        {/* Usando tag nativa do HTML para forçar o carregamento */}
+        <script 
+          defer 
+          src="https://cloud.umami.is/script.js" 
+          data-website-id="6ab1b84e-6645-4a41-9739-d440514c27f7"
+        ></script>
+      </head>
+      <body>
         {children}
       </body>
     </html>

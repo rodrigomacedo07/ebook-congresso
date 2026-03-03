@@ -804,6 +804,12 @@ export default function EbookPage() {
                   href="https://www.instagram.com/dr.mauroreis/" // <-- Insira o @ real aqui
                   target="_blank" 
                   rel="noopener noreferrer"
+                  onClick={() => {
+                    // Dispara o evento 'click_instagram' pro Umami
+                    if (typeof window !== 'undefined' && (window as any).umami) {
+                      (window as any).umami.track('click_instagram_rodape');
+                    }
+                  }}
                   className="inline-flex items-center justify-center gap-2 bg-[#2E86C1] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#1A5F8C] transition-colors shadow-sm active:scale-95"
                 >
                   <Instagram className="w-5 h-5 shrink-0" />
@@ -866,6 +872,11 @@ export default function EbookPage() {
             href="https://www.instagram.com/dr.mauroreis/"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => {
+              if (typeof window !== 'undefined' && (window as any).umami) {
+                (window as any).umami.track('click_instagram_menu_lateral');
+              }
+            }}
             className="flex items-center justify-center gap-2 w-full bg-linear-to-r from-[#833AB4] via-[#FD1D1D] to-[#F56040] text-white py-3.5 rounded-lg font-bold shadow-sm hover:opacity-90 transition-opacity active:scale-95"
           >
             <Instagram className="w-5 h-5" />
