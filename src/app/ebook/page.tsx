@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Menu, ChevronLeft, ChevronRight, CheckCircle2, X, Instagram } from 'lucide-react';
 import FeedbackForm from '@/components/ebook/FeedbackForm';
 import Image from 'next/image';
+import VersionBadge from '@/components/VersionBadge';
 
 export default function EbookPage() {
   const [currentChapter, setCurrentChapter] = useState(0);
@@ -169,20 +170,24 @@ export default function EbookPage() {
 
             <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">1.1 O que é Neurodesenvolvimento?</h3>
             <div className="space-y-5 text-gray-700 leading-relaxed mb-8">
-              <p>O cérebro humano é a estrutura mais complexa que conhecemos, e seu desenvolvimento desde a gestação até a vida adulta é um processo extraordinário. O neurodesenvolvimento refere-se à forma como o cérebro cresce, se organiza e cria suas redes de comunicação. Podemos imaginar esse processo como a construção de uma vasta cidade. Em um desenvolvimento considerado "típico", as estradas, pontes e sistemas de comunicação são construídos seguindo um mapa geral, resultando em uma cidade que funciona de maneira previsível para a maioria de seus habitantes.</p>
-              <p>Um desenvolvimento "atípico" ou "divergente", como ocorre no TEA e no TDAH, não significa que a construção deu errado, mas que foi utilizado um mapa diferente. As conexões entre os bairros (áreas cerebrais) podem ser diferentes, algumas estradas podem ser super-rápidas (hiperconectividade) enquanto outras são mais sinuosas (hipoconectividade). O resultado é uma cidade com uma lógica de funcionamento única, que pode ser incrivelmente eficiente para certas tarefas, mas que enfrenta desafios em outras. Compreender essa "arquitetura" cerebral distinta é fundamental para entender os comportamentos e as necessidades da criança.</p>
+              <p>Muitas famílias chegam ao meu consultório com a sensação de que algo "falhou" no desenvolvimento do filho. Meu primeiro papel como médico é acalmar esse coração e explicar que o neurodesenvolvimento é como a construção de uma grande cidade. Desde que o bebê está na barriga da mãe, o cérebro está trabalhando em uma "obra" constante, criando caminhos para a informação passar.</p>
+              <p>Em um desenvolvimento que chamamos de "típico", a construção segue um projeto padrão, aquele que a maioria das pessoas conhece. As ruas e avenidas são colocadas nos lugares esperados, o que faz com que a cidade funcione de um jeito que a maioria da sociedade já está acostumada a lidar.</p>
+              <p>Já em um desenvolvimento "atípico" ou "divergente" — como no caso do Autismo e do TDAH — não houve um erro na obra. O que aconteceu foi que o cérebro utilizou um mapa diferente. É uma cidade com uma arquitetura própria: alguns bairros podem ter muito mais movimento e detalhes, enquanto as avenidas que ligam os pontos mais distantes podem ter um ritmo de trânsito singular.</p>
+              <p>Compreender que o seu filho tem um "mapa original" é o que nos permite parar de tentar consertar a cidade e começar a aprender como navegar nela com eficiência.</p>
             </div>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">1.2 O Cérebro com TDAH</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">1.2 O Cérebro com TDAH: o Trânsito sem semáforo</h3>
             <div className="space-y-5 text-gray-700 leading-relaxed mb-8">
-              <p>Muitos pais de crianças com TDAH se perguntam por que tarefas aparentemente simples, como prestar atenção na aula ou controlar um impulso, são tão difíceis. A neurologia nos oferece respostas claras. O cérebro de uma pessoa com TDAH pode ser comparado a uma rede de internet com "fios congestionados ou bloqueados". Mensagens importantes, especialmente aquelas relacionadas à atenção, planejamento e controle de impulsos, não são transmitidas com a mesma eficiência que em um cérebro neurotípico.</p>
-              <p>Esse "congestionamento" está frequentemente ligado ao funcionamento de neurotransmissores, que são os mensageiros químicos do cérebro. No TDAH, há um desequilíbrio, principalmente na dopamina e na noradrenalina, que são cruciais para a regulação da atenção, motivação e funções executivas. Isso explica por que uma criança com TDAH pode ter dificuldade em focar em uma tarefa que considera monótona, mas consegue se hiperfocar por horas em um videogame que lhe proporciona estímulos constantes e recompensas imediatas. Não se trata de falta de vontade ou de "má criação", mas de uma diferença neurobiológica real no sistema de regulação e recompensa do cérebro. Pesquisas com exames de ressonância magnética também mostram que algumas áreas do cérebro, particularmente aquelas no córtex pré-frontal responsáveis pelo controle executivo, podem ser um pouco menores ou demorar mais para amadurecer em indivíduos com TDAH.</p>
+              <p>Muitos pais me perguntam: "Doutor, se ele consegue ficar horas no videogame, por que não consegue ficar dez minutos focado na aula?". A resposta está na forma como o trânsito dessa "cidade interna" é controlado.</p>
+              <p>No cérebro com TDAH, o moto do carro (que é o potencial da criança) costuma ser potente. O desafio está nos semáforos e nos freios. Para o trânsito fluir, o cérebro usa "guardas de trânsito" químicos (como a dopamina). No TDAH, esses guardas às vezes faltam ao trabalho ou se distraem.</p>
+              <p>É por isso que o trânsito fica bagunçado: os sinais não abrem na hora de prestar atenção e o freio falha na hora de segurar um impulso. Quando a criança está no videogame, o jogo funciona como um guarda de trânsito muito eficiente, dando ordens claras e rápidas. Mas na escola ou em tarefas repetitivas, o guarda "some" e o trânsito trava. Não é falta de vontade da criança. É o sistema de sinalização da cidade que precisa de suporte para funcionar no tempo certo.</p>
             </div>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">1.3 O Cérebro no espectro autista (TEA)</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">1.3 O Cérebro no espectro autista (TEA): bairros e avenidas</h3>
             <div className="space-y-5 text-gray-700 leading-relaxed mb-8">
-              <p>O cérebro de uma pessoa no espectro autista processa o mundo de uma maneira fundamentalmente diferente. Pesquisas sugerem que o TEA está associado a padrões atípicos de conectividade cerebral. Em alguns casos, pode haver uma superabundância de conexões locais, de curta distância, e uma deficiência nas conexões de longa distância, que integram informações de diferentes áreas do cérebro.</p>
-              <p>Essa particularidade na "fiação" cerebral pode explicar muitas das características centrais do autismo. A dificuldade na interação social, por exemplo, não decorre de uma falta de desejo de se conectar, mas de uma diferença na "linguagem" neurológica. O cérebro autista pode ter dificuldade em processar simultaneamente a complexidade das pistas sociais – expressões faciais, tom de voz, linguagem corporal – que para um cérebro neurotípico é algo intuitivo. A preferência por rotinas e a resistência a mudanças podem ser entendidas como uma estratégia do cérebro para criar um ambiente previsível e reduzir a sobrecarga de processar um mundo que parece caótico e imprevisível. Da mesma forma, as sensibilidades sensoriais (a uma luz, som ou textura) ocorrem porque o cérebro pode não filtrar os estímulos da mesma forma, levando a uma experiência sensorial muito mais intensa e, por vezes, avassaladora.</p>
+              <p>O cérebro autista processa o mundo seguindo uma lógica de caminhos única. Imagine que essa cidade interna possui bairros extremamente detalhados, onde as ruas e becos são tão conectados que a criança nota detalhes que ninguém mais percebe — como uma peça fora do lugar ou um som distante.</p>
+              <p>O desafio é que essa cidade tem poucas grandes avenidas. Sem essas conexões de longa distância, o cérebro tem dificuldade em "juntar os bairros" para entender situações sociais. Na prática, isso explica por que a interação é desafiadora: não é falta de interesse, mas uma dificuldade neurológica em processar, ao mesmo tempo, o tom de voz, o olhar e a linguagem corporal do outro.</p>
+              <p>Essa "arquitetura" também justifica a busca por rotinas. Para a criança, a rotina funciona como um mapa fixo que traz segurança em uma cidade que parece caótica. Da mesma forma, as sensibilidades sensoriais ocorrem porque os "bairros" são abertos demais. Sem filtros, o barulho e a luz da rua entram de uma vez, tornando a experiência do mundo intensa e, por vezes, avassaladora. Entender isso nos permite ver o comportamento do seu filho não como um erro, mas como uma tentativa de organizar o trânsito em uma cidade que nunca silencia.</p>
             </div>
 
             <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">1.4 Juntos, mas diferentes: A comorbidade de TEA e TDAH</h3>
@@ -865,8 +870,21 @@ export default function EbookPage() {
             </button>
           ))}
         </div>
+        
+      {/* Footer Ultra-Soft */}
+        <div className="mt-auto pt-4 pb-4  flex flex-col items-center justify-center gap-1 bg-white">
+          <div className="flex items-center text-[11px] text-gray-400 font-medium">
+            © {new Date().getFullYear()} · Dr. Mauro Reis
+          </div>
+          
+          <div className="flex items-center text-[10px] text-gray-300">
+            <span>Designed & built by M7 Partners</span>
+            <span className="mx-1.5 opacity-50">•</span>
+            <VersionBadge />
+          </div>
+        </div>
 
-        {/* Rodapé do Menu: Instagram */}
+      {/* Rodapé do Menu: Instagram */}
         <div className="p-5 border-t bg-gray-50">
           <a 
             href="https://www.instagram.com/dr.mauroreis/"
@@ -916,6 +934,8 @@ export default function EbookPage() {
           </span>
         )}
       </div>
+
+
     </div>
   );
 }
