@@ -667,109 +667,194 @@ export default function EbookPage() {
               </div>
             </div>
 
-            <h3 className="text-xl font-bold text-[#0D2A4B] mt-10 mb-4">Checklists práticos para o dia a dia</h3>
+            <h3 className="text-xl font-bold text-[#0D2A4B] mt-14 mb-8 flex items-center gap-2">
+              Checklists práticos para o dia a dia
+            </h3>
             
-            <h4 className="font-bold text-[#2E86C1] mb-2">Checklist 1: kit de sobrevivência sensorial para passeios</h4>
-            <p className="text-gray-700 leading-relaxed mb-4">Monte uma pequena bolsa com itens que podem ajudar a prevenir ou manejar uma sobrecarga sensorial em ambientes públicos.</p>
-            
-            {/* UX: Checklists como labels interativos */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-8">
-              {[
-                "Abafadores de som ou fones de ouvido com cancelamento de ruído.",
-                "Óculos de sol para sensibilidade à luz.",
-                "Um 'fidget' ou objeto de apego favorito para autorregulação.",
-                "Lanche e água (fome e sede são gatilhos comuns).",
-                "Um tablet ou celular com jogos ou vídeos calmantes (para momentos de espera).",
-                "Cartões de comunicação simples (se a criança for não-verbal ou perder a fala em momentos de estresse)."
-              ].map((item, i) => (
-                <label key={i} className="flex items-start p-4 border-b border-gray-50 hover:bg-gray-50 cursor-pointer transition-colors active:bg-gray-100">
-                  <input type="checkbox" className="w-6 h-6 shrink-0 mt-0.5 text-[#2E86C1] rounded border-gray-300 focus:ring-[#2E86C1]" />
-                  <span className="ml-3 text-gray-700 leading-relaxed">{item}</span>
-                </label>
-              ))}
-            </div>
-
-            <h4 className="font-bold text-[#2E86C1] mb-2">Checklist 2: Modelo de quadro de rotina visual semanal</h4>
-            <p className="text-gray-700 leading-relaxed mb-4">Use um quadro branco ou cartolina e crie cartões com figuras ou palavras para cada atividade principal.</p>
-            
-            {/* UX Otimizada: Tabelas viram Cards no Mobile */}
-            <div className="space-y-4 mb-8">
-              <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
-                <h4 className="font-bold text-[#0D2A4B] mb-3 text-lg border-b pb-2">Manhã</h4>
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm text-gray-700">
-                  <div><span className="font-bold block text-gray-400">Seg</span> [Escola]</div>
-                  <div><span className="font-bold block text-gray-400">Ter</span> [Escola]</div>
-                  <div><span className="font-bold block text-gray-400">Qua</span> [Fono]</div>
-                  <div><span className="font-bold block text-gray-400">Qui</span> [Escola]</div>
-                  <div><span className="font-bold block text-gray-400">Sex</span> [Escola]</div>
-                </div>
+            {/* ========================================== */}
+            {/* CHECKLIST 1 */}
+            {/* ========================================== */}
+            {/* Envelopamos a ferramenta inteira. O mb-14 cria a barreira visual pro próximo */}
+            <div className="mb-14"> 
+              {/* Agrupamento do Cabeçalho do Checklist */}
+              <div className="mb-5">
+                <h4 className="font-bold text-[#2E86C1] mb-1">Checklist 1: Kit de sobrevivência sensorial para passeios</h4>
+                <p className="text-gray-600 leading-relaxed">
+                  Monte uma pequena bolsa com itens que podem ajudar a prevenir ou manejar uma sobrecarga sensorial em ambientes públicos.
+                </p>
               </div>
-              <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
-                <h4 className="font-bold text-[#0D2A4B] mb-3 text-lg border-b pb-2">Tarde</h4>
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm text-gray-700">
-                  <div><span className="font-bold block text-gray-400">Seg</span> - </div>
-                  <div><span className="font-bold block text-gray-400">Ter</span> [Parque]</div>
-                  <div><span className="font-bold block text-gray-400">Qua</span> [Escola]</div>
-                  <div><span className="font-bold block text-gray-400">Qui</span> [Psicólogo]</div>
-                  <div><span className="font-bold block text-gray-400">Sex</span> [Casa da Vovó]</div>
-                </div>
-              </div>
-              <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
-                <h4 className="font-bold text-[#0D2A4B] mb-3 text-lg border-b pb-2">Noite</h4>
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm text-gray-700">
-                  <div><span className="font-bold block text-gray-400">Seg</span> [Jantar/Leitura]</div>
-                  <div><span className="font-bold block text-gray-400">Ter</span> [Jantar/Leitura]</div>
-                  <div><span className="font-bold block text-gray-400">Qua</span> [Jantar/Leitura]</div>
-                  <div><span className="font-bold block text-gray-400">Qui</span> [Jantar/Leitura]</div>
-                  <div><span className="font-bold block text-gray-400">Sex</span> [Pizza/Filme]</div>
-                </div>
+              
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                {[
+                  "Abafadores de som ou fones de ouvido com cancelamento de ruído.",
+                  "Óculos de sol para sensibilidade à luz.",
+                  "Um 'fidget' ou objeto de apego favorito para autorregulação.",
+                  "Lanche e água (fome e sede são gatilhos comuns).",
+                  "Um tablet ou celular com jogos ou vídeos calmantes (para momentos de espera).",
+                  "Cartões de comunicação simples (se a criança for não-verbal ou perder a fala em momentos de estresse)."
+                ].map((item, i) => (
+                  <label 
+                    key={i} 
+                    // Mantemos o px-5 e py-4 padrão, mas forçamos um topo maior (pt-6) no primeiro item 
+                    // e uma base maior (pb-6) no último. Também tiramos a borda inferior do último (last:border-b-0).
+                    className="flex items-start px-5 py-4 border-b border-gray-50 hover:bg-gray-50 cursor-pointer transition-colors active:bg-gray-100 first:pt-6 last:pb-6 last:border-b-0"
+                  >
+                    <input type="checkbox" className="w-6 h-6 shrink-0 mt-0.5 text-[#2E86C1] rounded border-gray-300 focus:ring-[#2E86C1]" />
+                    <span className="ml-3 text-gray-700 leading-relaxed">{item}</span>
+                  </label>
+                ))}
               </div>
             </div>
 
-            <h4 className="font-bold text-[#2E86C1] mb-2">Checklist 3: roteiro para a reunião com a escola</h4>
-            <p className="text-gray-700 leading-relaxed mb-4">Organize suas ideias antes da reunião para garantir que todos os pontos importantes sejam abordados.</p>
-            
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-8">
-              {[
-                "Apresentação: breve resumo do perfil do meu filho (diagnósticos, pontos fortes, interesses).",
-                "Objetivos da reunião: o que eu espero alcançar? (Ex: discutir adaptações para o recreio).",
-                "O que está funcionando: comece com um feedback positivo para criar um tom colaborativo.",
-                "Desafios observados: descreva de forma objetiva (Ex: 'tenho observado que ele volta muito agitado do recreio').",
-                "Sugestões de estratégias: apresente as estratégias que funcionam em casa/terapia.",
-                "Perguntas para a escola: como podemos trabalhar juntos? Quem é meu ponto de contato?",
-                "Próximos passos: definir um plano de ação claro, com responsáveis e prazos."
-              ].map((item, i) => (
-                <label key={i} className="flex items-start p-4 border-b border-gray-50 hover:bg-gray-50 cursor-pointer transition-colors active:bg-gray-100">
-                  <input type="checkbox" className="w-6 h-6 shrink-0 mt-0.5 text-[#2E86C1] rounded border-gray-300 focus:ring-[#2E86C1]" />
-                  <span className="ml-3 text-gray-700 leading-relaxed">{item}</span>
-                </label>
-              ))}
+            {/* ========================================== */}
+            {/* CHECKLIST 2 */}
+            {/* ========================================== */}
+            <div className="mb-14">
+              <div className="mb-5">
+                <h4 className="font-bold text-[#2E86C1] mb-1">Checklist 2: Modelo de quadro de rotina visual semanal</h4>
+                <p className="text-gray-600 leading-relaxed">
+                  Use um quadro branco ou cartolina e crie cartões com figuras ou palavras para cada atividade principal.
+                </p>
+              </div>
+              
+              <div className="space-y-4">
+                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                  <h4 className="font-bold text-[#0D2A4B] mb-3 text-sm uppercase tracking-wider border-b pb-2">Manhã</h4>
+                  <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm text-gray-700">
+                    <div><span className="font-bold block text-gray-400 text-xs">SEG</span> [Escola]</div>
+                    <div><span className="font-bold block text-gray-400 text-xs">TER</span> [Escola]</div>
+                    <div><span className="font-bold block text-gray-400 text-xs">QUA</span> [Fono]</div>
+                    <div><span className="font-bold block text-gray-400 text-xs">QUI</span> [Escola]</div>
+                    <div><span className="font-bold block text-gray-400 text-xs">SEX</span> [Escola]</div>
+                  </div>
+                </div>
+                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                  <h4 className="font-bold text-[#0D2A4B] mb-3 text-sm uppercase tracking-wider border-b pb-2">Tarde</h4>
+                  <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm text-gray-700">
+                    <div><span className="font-bold block text-gray-400 text-xs">SEG</span> - </div>
+                    <div><span className="font-bold block text-gray-400 text-xs">TER</span> [Parque]</div>
+                    <div><span className="font-bold block text-gray-400 text-xs">QUA</span> [Escola]</div>
+                    <div><span className="font-bold block text-gray-400 text-xs">QUI</span> [Psicólogo]</div>
+                    <div><span className="font-bold block text-gray-400 text-xs">SEX</span> [Casa da Vovó]</div>
+                  </div>
+                </div>
+                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                  <h4 className="font-bold text-[#0D2A4B] mb-3 text-sm uppercase tracking-wider border-b pb-2">Noite</h4>
+                  <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm text-gray-700">
+                    <div><span className="font-bold block text-gray-400 text-xs">SEG</span> [Jantar/Leitura]</div>
+                    <div><span className="font-bold block text-gray-400 text-xs">TER</span> [Jantar/Leitura]</div>
+                    <div><span className="font-bold block text-gray-400 text-xs">QUA</span> [Jantar/Leitura]</div>
+                    <div><span className="font-bold block text-gray-400 text-xs">QUI</span> [Jantar/Leitura]</div>
+                    <div><span className="font-bold block text-gray-400 text-xs">SEX</span> [Pizza/Filme]</div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <h4 className="font-bold text-[#2E86C1] mb-4">Checklist 4: plano de ação para manejo de crises</h4>
+            {/* ========================================== */}
+            {/* CHECKLIST 3 */}
+            {/* ========================================== */}
+            <div className="mb-14">
+              <div className="mb-5">
+                <h4 className="font-bold text-[#2E86C1] mb-1">Checklist 3: Roteiro para a reunião com a escola</h4>
+                <p className="text-gray-600 leading-relaxed">
+                  Organize suas ideias antes da reunião para garantir que todos os pontos importantes sejam abordados.
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                {[
+                  <span key="1"><strong className="text-gray-900">Apresentação:</strong> Breve resumo do perfil do meu filho (diagnósticos, pontos fortes, interesses).</span>,
+                  <span key="2"><strong className="text-gray-900">Objetivos da reunião:</strong> O que eu espero alcançar? (Ex: discutir adaptações para o recreio).</span>,
+                  <span key="3"><strong className="text-gray-900">O que está funcionando:</strong> Comece com um feedback positivo para criar um tom colaborativo.</span>,
+                  <span key="4"><strong className="text-gray-900">Desafios observados:</strong> Descreva de forma objetiva (Ex: 'tenho observado que ele volta muito agitado do recreio').</span>,
+                  <span key="5"><strong className="text-gray-900">Sugestões de estratégias:</strong> Apresente as estratégias que funcionam em casa/terapia.</span>,
+                  <span key="6"><strong className="text-gray-900">Perguntas para a escola:</strong> Como podemos trabalhar juntos? Quem é meu ponto de contato?</span>,
+                  <span key="7"><strong className="text-gray-900">Próximos passos:</strong> Definir um plano de ação claro, com responsáveis e prazos.</span>
+                ].map((item, i) => (
+                  <label key={i} className="flex items-start p-5 border-b border-gray-50 hover:bg-gray-50 cursor-pointer transition-colors active:bg-gray-100 first:pt-6 last:pb-6 last:border-b-0">
+                    <input type="checkbox" className="w-5 h-5 shrink-0 mt-0.5 text-[#2E86C1] rounded border-gray-300 focus:ring-[#2E86C1]" />
+                    <span className="ml-3 text-gray-700 leading-relaxed">{item}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+              <h4 className="font-bold text-[#2E86C1] mb-4 flex items-center gap-2">
+              Checklist 4: Plano de ação para manejo de crises
+              </h4>
+
             <div className="space-y-4 mb-16">
-              <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
-                <h5 className="font-bold text-[#0D2A4B] mb-2">Fase 1: Sinais de Alerta (prevenção)</h5>
-                <ul className="text-gray-700 text-sm list-disc pl-5 space-y-1">
-                  <li>Meu filho está mostrando: [Liste os sinais. Ex: balançar as mãos, ficar quieto demais].</li>
-                  <li><strong>Ação:</strong> Reduzir a demanda. Oferecer uma pausa. Mudar de ambiente. Usar kit sensorial.</li>
+              
+              {/* Fase 1: Atenção (Borda Amarela) */}
+              <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 border-l-4 border-l-[#F5B041]">
+                <h5 className="font-bold text-[#0D2A4B] mb-4 flex items-center gap-2">
+                  <span className="bg-[#FDF2E9] text-[#E67E22] px-2 py-0.5 rounded text-xs uppercase tracking-wider">Fase 1</span>
+                  Sinais de Alerta (Prevenção)
+                </h5>
+                
+                <div className="space-y-3 text-sm text-gray-700">
+                  {/* Removemos o bullet. Virou um bloco de contexto. */}
+                  <div className="bg-gray-50 p-3 rounded-md border border-gray-100">
+                    <strong className="text-gray-900 block mb-1">O que observar (Gatilhos):</strong>
+                    <span className="italic text-gray-600">Agitação incomum, balançar as mãos, tapar os ouvidos ou silêncio repentino.</span>
+                  </div>
+                  
+                  <div className="flex items-start gap-2 pt-1">
+                    <span className="text-[#F5B041] mt-0.5">↳</span>
+                    <span><strong className="text-gray-900">O que fazer:</strong> Reduza as exigências imediatamente. Ofereça uma pausa, mude de ambiente ou entregue o kit sensorial.</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Fase 2: Crise (Borda Vermelha) */}
+              <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 border-l-4 border-l-[#E74C3C]">
+                <h5 className="font-bold text-[#0D2A4B] mb-4 flex items-center gap-2">
+                  <span className="bg-[#FDEDEC] text-[#C0392B] px-2 py-0.5 rounded text-xs uppercase tracking-wider">Fase 2</span>
+                  Pico da Crise (Meltdown)
+                </h5>
+                
+                <ul className="text-gray-700 text-sm space-y-3">
+                  {/* Copy transformado em comandos diretos */}
+                  <li className="flex items-start gap-2">
+                    <span className="bg-[#E74C3C] text-white w-5 h-5 flex items-center justify-center rounded-full text-xs font-bold shrink-0 mt-0.5">1</span>
+                    <span><strong className="text-[#C0392B] tracking-wide">Segurança:</strong> Garanta a integridade física dele e de quem estiver por perto.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="bg-[#E74C3C] text-white w-5 h-5 flex items-center justify-center rounded-full text-xs font-bold shrink-0 mt-0.5">2</span>
+                    <span><strong className="text-[#C0392B] tracking-wide">Silêncio:</strong> Fale o mínimo possível. Use um tom de voz baixo e monótono.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="bg-[#E74C3C] text-white w-5 h-5 flex items-center justify-center rounded-full text-xs font-bold shrink-0 mt-0.5">3</span>
+                    <span><strong className="text-[#C0392B] tracking-wide">Espaço:</strong> Afaste estímulos. Ofereça espaço físico (ou contenção, apenas se ele buscar o abraço).</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="bg-[#E74C3C] text-white w-5 h-5 flex items-center justify-center rounded-full text-xs font-bold shrink-0 mt-0.5">4</span>
+                    <span><strong className="text-[#C0392B] tracking-wide">Calma:</strong> A sua estabilidade é a âncora dele. Respire fundo e não leve para o lado pessoal.</span>
+                  </li>
                 </ul>
               </div>
-              <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
-                <h5 className="font-bold text-[#0D2A4B] mb-2">Fase 2: Crise (Pico do Meltdown)</h5>
-                <ul className="text-gray-700 text-sm list-disc pl-5 space-y-1">
-                  <li><strong>Ação 1: SEGURANÇA.</strong> Garantir que ele e outros estejam seguros.</li>
-                  <li><strong>Ação 2: SILÊNCIO.</strong> Falar o mínimo possível. Voz calma.</li>
-                  <li><strong>Ação 3: ESPAÇO.</strong> Reduzir estímulos. Oferecer espaço ou abraço contido (se ele aceitar).</li>
-                  <li><strong>Ação 4: CALMA.</strong> Minha calma é a âncora dele. Respirar fundo.</li>
+
+              {/* Fase 3: Recuperação (Borda Azul) */}
+              <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 border-l-4 border-l-[#2E86C1]">
+                <h5 className="font-bold text-[#0D2A4B] mb-4 flex items-center gap-2">
+                  <span className="bg-[#EBF5FB] text-[#1B4F72] px-2 py-0.5 rounded text-xs uppercase tracking-wider">Fase 3</span>
+                  Recuperação (Pós-Crise)
+                </h5>
+                
+                <ul className="text-gray-700 text-sm space-y-3">
+                  {/* Quebramos em duas ações claras */}
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#2E86C1] mt-0.5 font-bold">✓</span>
+                    <span><strong className="text-gray-900">Acolhimento físico:</strong> Ofereça água e um ambiente confortável. O corpo dele estará exausto.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#2E86C1] mt-0.5 font-bold">✓</span>
+                    <span><strong className="text-gray-900">Acolhimento emocional:</strong> Valide o que aconteceu ("Eu sei que foi muito difícil"). <strong className="text-[#E74C3C]">Não dê sermão agora.</strong> A conversa fica para depois.</span>
+                  </li>
                 </ul>
               </div>
-              <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
-                <h5 className="font-bold text-[#0D2A4B] mb-2">Fase 3: Pós-Crise (Recuperação)</h5>
-                <ul className="text-gray-700 text-sm list-disc pl-5 space-y-1">
-                  <li><strong>Ação:</strong> Acolher. Oferecer água. Validar o sentimento ("Isso foi muito difícil"). Não dar sermão. A conversa fica para depois.</li>
-                </ul>
-              </div>
+
             </div>
 
             
