@@ -843,7 +843,7 @@ export default function EbookPage() {
               {/* Fase 1: Atenção (Borda Amarela) */}
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 border-l-4 border-l-[#F5B041]">
                 <h5 className="font-bold text-[#0D2A4B] mb-4 flex items-center gap-2">
-                  <span className="bg-[#FDF2E9] text-[#E67E22] px-2 py-0.5 rounded text-xs uppercase tracking-wider">Fase 1</span>
+                  <span className="bg-[#FDF2E9] text-[#E67E22] px-2 py-0.5 rounded text-xs uppercase tracking-wider shrink-0 whitespace-nowrap">Fase 1</span>
                   Sinais de Alerta (Prevenção)
                 </h5>
                 
@@ -864,7 +864,7 @@ export default function EbookPage() {
               {/* Fase 2: Crise (Borda Vermelha) */}
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 border-l-4 border-l-[#E74C3C]">
                 <h5 className="font-bold text-[#0D2A4B] mb-4 flex items-center gap-2">
-                  <span className="bg-[#FDEDEC] text-[#C0392B] px-2 py-0.5 rounded text-xs uppercase tracking-wider">Fase 2</span>
+                  <span className="bg-[#FDEDEC] text-[#C0392B] px-2 py-0.5 rounded text-xs uppercase tracking-wider shrink-0 whitespace-nowrap">Fase 2</span>
                   Pico da Crise (Meltdown)
                 </h5>
                 
@@ -892,8 +892,8 @@ export default function EbookPage() {
               {/* Fase 3: Recuperação (Borda Azul) */}
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 border-l-4 border-l-[#2E86C1]">
                 <h5 className="font-bold text-[#0D2A4B] mb-4 flex items-center gap-2">
-                  <span className="bg-[#EBF5FB] text-[#1B4F72] px-2 py-0.5 rounded text-xs uppercase tracking-wider">Fase 3</span>
-                  Recuperação (Pós-Crise)
+                  <span className="bg-[#EBF5FB] text-[#1B4F72] px-2 py-0.5 rounded text-xs uppercase tracking-wider shrink-0 whitespace-nowrap">Fase 3</span>
+                  Recuperação (Pós-crise)
                 </h5>
                 
                 <ul className="text-gray-700 text-sm space-y-3">
@@ -904,7 +904,7 @@ export default function EbookPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[#2E86C1] mt-0.5 font-bold">✓</span>
-                    <span><strong className="text-gray-900">Acolhimento emocional:</strong> Valide o que aconteceu ("Eu sei que foi muito difícil"). <strong className="text-[#E74C3C]">Não dê sermão agora.</strong> A conversa fica para depois.</span>
+                    <span><strong className="text-gray-900">Acolhimento emocional:</strong> Valide o que aconteceu ("eu sei que foi muito difícil"). <strong className="text-[#E74C3C]">Não dê sermão agora.</strong> A conversa fica para depois.</span>
                   </li>
                 </ul>
               </div>
