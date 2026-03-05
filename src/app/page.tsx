@@ -22,12 +22,18 @@ async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     const result = await captureLead(formData);
 
     if (result.success) {
-      // 1. Dispara o evento de conversão pro Umami com segurança
+      // 1. SALVA OS DADOS NA "MOCHILA" DO NAVEGADOR PARA O UMAMI LER NO E-BOOK
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('umami_lead_id', result.lead_id as string);
+        localStorage.setItem('umami_lead_perfil', result.perfil as string);
+      }
+
+      // 2. Dispara o evento de conversão pro Umami com segurança
       if (typeof window !== 'undefined' && (window as any).umami) {
         (window as any).umami.track('lead_captured');
       }
 
-      // 2. Só então, com o cookie gerado e a métrica salva, manda para o e-book!
+      // 3. Só então, com o cookie gerado e a métrica salva, manda para o e-book!
       setTimeout(() => {
         router.push('/ebook');
       }, 300);

@@ -34,5 +34,9 @@ export async function captureLead(formData: FormData) {
     maxAge: 60 * 60 * 24 * 30, 
   });
 
-  return { success: true };
+return { 
+    success: true, 
+    lead_id: data.id, 
+    perfil: perfil 
+  };
 }

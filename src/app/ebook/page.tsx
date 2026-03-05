@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { logReadingTime } from '@/actions/tracking';
 import { Menu, ChevronLeft, ChevronRight, CheckCircle2, X, Instagram } from 'lucide-react';
 import FeedbackForm from '@/components/ebook/FeedbackForm';
 import Image from 'next/image';
@@ -10,6 +11,9 @@ export default function EbookPage() {
   const [currentChapter, setCurrentChapter] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const totalChapters = 8; // 0=Intro, 1-6=Capítulos, 7=Conclusão, 8=Apêndices
+
+  // Memória silenciosa que guarda a exata hora em que o capítulo foi aberto
+  const chapterStartTimeRef = useRef<number>(Date.now());
 
   const chapterTitles = [
     "Introdução", "1. Decodificando o Cérebro", "2. O Mapa do Cuidado", 
@@ -21,6 +25,56 @@ export default function EbookPage() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [currentChapter]);
+
+  // 2. O NOVO USE EFFECT DE ANALYTICS (O Espião de Funil)
+  useEffect(() => {
+      // Verifica se estamos no navegador e se o script do Umami já carregou
+      if (typeof window !== 'undefined' && (window as any).umami) {
+        
+        const chapterName = chapterTitles[currentChapter];
+        
+        // Puxa as informações da "mochila" que a Landing Page preparou
+        const leadId = localStorage.getItem('umami_lead_id') || 'anonimo';
+        const userProfile = localStorage.getItem('umami_lead_perfil') || 'nao_informado';
+
+        // Dispara o evento pro Umami carregando a inteligência de negócios
+        (window as any).umami.track('chapter_viewed', { 
+          chapter_id: currentChapter, 
+          chapter_title: chapterName,
+          lead_id: leadId,
+          perfil: userProfile
+        });
+      }
+    }, [currentChapter]);
+
+
+  // 3. O CRONÔMETRO DE RETENÇÃO (Supabase Tracking)
+  useEffect(() => {
+    // Sempre que o capítulo muda, nós "zeramos" o cronômetro marcando a hora atual
+    chapterStartTimeRef.current = Date.now();
+
+    // A função retornada abaixo SÓ EXECUTA quando o usuário clica em "Próximo", "Anterior"
+    // ou escolhe outro capítulo no menu (ou seja, quando ele "sai" do capítulo atual)
+    return () => {
+      // Calcula quantos segundos se passaram desde que ele entrou
+      const timeSpentInSeconds = Math.round((Date.now() - chapterStartTimeRef.current) / 1000);
+
+      // Filtro anti-spam: Só enviamos para o banco se ele ficou mais de 5 segundos.
+      // Menos que isso foi só um "esbarrão" no botão ou rolagem rápida pelo menu.
+      if (timeSpentInSeconds > 5) {
+        const leadId = localStorage.getItem('umami_lead_id');
+
+        // Se sabemos quem é o Lead, disparamos a gravação silenciosa no banco
+        if (leadId && leadId !== 'anonimo') {
+          logReadingTime({
+            leadId: leadId,
+            chapterId: currentChapter, // O capítulo do qual ele está saindo
+            timeInSeconds: timeSpentInSeconds
+          });
+        }
+      }
+    };
+  }, [currentChapter]); // O gatilho é a mudança de capítulo
 
   return (
     <div className="min-h-screen bg-[#F8F9FA] text-[#0D2A4B] font-sans pb-24">
@@ -37,7 +91,7 @@ export default function EbookPage() {
               height={36} 
               className="shrink-0 object-contain"
             />
-            <h1 className="text-lg font-bold text-[#0D2A4B] truncate">
+            <h1 className="text-base font-bold text-[#0D2A4B] truncate ">
               Navegando a Neurodiversidade
             </h1>
           </div>
@@ -936,7 +990,7 @@ export default function EbookPage() {
         </div>
 
         {/* Lista de Capítulos */}
-        <div className="flex-1 overflow-y-auto py-2">
+        <div className="flex-1 overflow-y-auto py-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-thumb]:rounded-full">
           {chapterTitles.map((title, index) => (
             <button
               key={index}
