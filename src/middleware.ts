@@ -3,23 +3,29 @@ import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
+  
+  // Procura o nosso "pedágio" (o cookie de acesso)
+  const hasAccess = request.cookies.has('ebook_access_granted');
 
-  // Verifica se o usuário está tentando acessar o e-book
+  // REGRA 1: Proteção do Produto (Sem cookie na rota do e-book)
   if (path.startsWith('/ebook')) {
-    // Procura o nosso "pedágio" (o cookie que criamos na etapa de captura)
-    const hasAccess = request.cookies.has('ebook_access_granted');
-
     if (!hasAccess) {
-      // Sem cookie = Sem acesso. Redireciona para o formulário na Home (/)
       return NextResponse.redirect(new URL('/', request.url));
     }
   }
 
-  // Se tiver o cookie (ou se estiver acessando a Home), deixa passar
+  // REGRA 2: Fricção Zero (Com cookie na rota da Landing Page)
+  if (path === '/') {
+    if (hasAccess) {
+      return NextResponse.redirect(new URL('/ebook', request.url));
+    }
+  }
+
+  // Se tudo estiver nos conformes, deixa o fluxo seguir naturalmente
   return NextResponse.next();
 }
 
-// Otimização: O middleware só vai rodar na rota do e-book
+// Otimização: O middleware agora roda nas duas rotas críticas
 export const config = {
-  matcher: ['/ebook/:path*'],
+  matcher: ['/', '/ebook/:path*'],
 }
