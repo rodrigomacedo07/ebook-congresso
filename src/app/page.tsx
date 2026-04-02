@@ -74,7 +74,7 @@ export default function LandingPage() {
     <main className="min-h-screen bg-[#F8F9FA] flex flex-col justify-center items-center p-4 md:p-8">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl overflow-hidden">
         
-        <div className="bg-[#0D2A4B] p-6 text-center text-white">
+        <div className="bg-[#0286C1] p-6 text-center text-white">
           <Image
             src="/miniatura_ebook_dr.png"
             alt="Foto do Dr. Mauro Reis"
@@ -83,12 +83,12 @@ export default function LandingPage() {
             className="rounded-full object-cover shadow-lg mb-4 mx-auto"
           />
           <h1 className="text-2xl font-extrabold mb-1">Navegando a Neurodiversidade</h1>
-          <p className="text-[#A9CCE3] text-sm">Guia prático para famílias e profissionais</p>
+          <p className="text-white text-sm mb-6">Guia prático para famílias neurodivergentes</p>
         </div>
 
         <div className="p-6 md:p-8">
           <div className="mb-6 text-center">
-            <h2 className="text-lg font-bold text-gray-800">Baixe seu e-book gratuito</h2>
+            <h2 className="text-lg font-bold text-gray-800">Acesse seu e-book gratuito</h2>
             <p className="text-sm text-gray-500 mt-1">Preencha os dados abaixo para liberar o seu acesso imediato.</p>
           </div>
 

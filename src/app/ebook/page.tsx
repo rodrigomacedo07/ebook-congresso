@@ -384,7 +384,7 @@ export default function EbookPage() {
               <li><strong>Terapeuta Ocupacional:</strong> Foca no desenvolvimento da autonomia para atividades da vida diária (higiene, alimentação), na integração sensorial para lidar com hipo ou hipersensibilidades e no desenvolvimento da motricidade fina.</li>
               <li><strong>Nutricionista:</strong> Essencial para lidar com a seletividade alimentar, corrigir deficiências nutricionais e desenvolver um plano alimentar que suporte a saúde cerebral e geral da criança.</li>
             </ul>
-            <p className="text-gray-700 leading-relaxed">O papel da família é ser o "CEO" dessa equipe, garantindo que a comunicação flua entre os profissionais e que as estratégias sejam consistentes entre a terapia, a casa e a escola.</p>
+            <p className="text-gray-700 leading-relaxed">O papel da família é ser o "CEO", o "Diretor" dessa equipe, o "responsável" por garantir que a comunicação flua entre os profissionais e que as estratégias sejam consistentes entre a terapia, a casa e a escola.</p>
           </section>
         )}
 
@@ -408,8 +408,8 @@ export default function EbookPage() {
             <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">3.1 Entendendo e prevenindo crises (meltdowns)</h3>
             <div className="space-y-5 text-gray-700 leading-relaxed mb-8">
               <p>Um dos maiores desafios para as famílias é lidar com as crises, ou <em>meltdowns</em>. O primeiro passo para manejá-las é entender a diferença fundamental entre uma birra e um <em>meltdown</em>. Uma birra é um comportamento, muitas vezes manipulador e direcionado a um objetivo, que uma criança usa para conseguir o que quer. Ela tende a diminuir se não houver uma plateia.</p>
-              <p>Um <em>meltdown</em>, por outro lado, é uma reação intensa e involuntária a uma sobrecarga sensorial ou emocional. O cérebro da criança simplesmente não consegue mais processar os estímulos e entra em colapso. Não há um objetivo final, a não ser a liberação de uma tensão insuportável.[28, 29] Reconhecer essa diferença é crucial, pois as estratégias para lidar com cada um são opostas. Tentar negociar ou punir um <em>meltdown</em> é ineficaz e pode piorar a situação.</p>
-              <p>A prevenção é a ferramenta mais poderosa. Isso envolve aprender a identificar os gatilhos da criança (ambientes barulhentos, mudanças inesperadas, cansaço, fome) e os sinais de alerta que precedem a crise (a fase de "aceleração"). Esses sinais podem incluir aumento de movimentos repetitivos, mudança na expressão facial, rigidez corporal ou emissão de sons. Intervir nesse momento, removendo a criança do ambiente estressor ou oferecendo uma ferramenta de regulação, pode evitar que a crise atinja seu pico.[29, 30]</p>
+              <p>Um <em>meltdown</em>, por outro lado, é uma reação intensa e involuntária a uma sobrecarga sensorial ou emocional. O cérebro da criança simplesmente não consegue mais processar os estímulos e entra em colapso. Não há um objetivo final, a não ser a liberação de uma tensão insuportável. Reconhecer essa diferença é crucial, pois as estratégias para lidar com cada um são opostas. Tentar negociar ou punir um <em>meltdown</em> é ineficaz e pode piorar a situação.</p>
+              <p>A prevenção é a ferramenta mais poderosa. Isso envolve aprender a identificar os gatilhos da criança (ambientes barulhentos, mudanças inesperadas, cansaço, fome) e os sinais de alerta que precedem a crise (a fase de "aceleração"). Esses sinais podem incluir aumento de movimentos repetitivos, mudança na expressão facial, rigidez corporal ou emissão de sons. Intervir nesse momento, removendo a criança do ambiente estressor ou oferecendo uma ferramenta de regulação, pode evitar que a crise atinja seu pico.</p>
             </div>
 
             <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">3.2 Guia prático para o manejo de crises</h3>
@@ -706,6 +706,7 @@ export default function EbookPage() {
                   <h4 className="font-bold text-[#2E86C1] mb-3 uppercase tracking-wider text-sm border-b pb-2">Vivência e Instituições</h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {[
+                      { nome: "Hugo Duarte", arroba: "@hugoduarterj", desc: "Pai de autista | Tropa do Ben" },
                       { nome: "Fernanda Fialho", arroba: "@paraquetabu", desc: "Autismo & Saúde Mental Sem Tabu" },
                       { nome: "Paulo Messina", arroba: "@messinaoficial", desc: "Pai de Gêmeos Autistas e Professor" },
                       { nome: "Instituto Neurodiversidade", arroba: "@institutoneurodiversidade", desc: "Clínica Multidisciplinar" }
