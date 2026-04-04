@@ -69,6 +69,9 @@ export async function captureLead(formData: FormData) {
     maxAge: 60 * 60 * 24 * 30, 
   });
 
+  // ---> NOSSO ESPIÃO DA ACTION <---
+  console.log(`[DEBUG-ACTION] Servidor ordenou a gravação do cookie para o Lead: ${cleanEmail}`);
+ 
   return { 
     success: true, 
     lead_id: data.id, 
