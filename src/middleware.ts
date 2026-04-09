@@ -12,11 +12,13 @@ export function middleware(request: NextRequest) {
     console.log(`[DEBUG-AUTH] URL: ${path} | Cookie Existe? ${hasAccess} | Navegador: ${userAgent}`);
   }
 
-  // REGRA 1: Proteção do Produto
+  // REGRA 1: Proteção do Produto (com fallback permitido)
   if (path.startsWith('/ebook')) {
     if (!hasAccess) {
-      console.log(`[DEBUG-BLOCK] Acesso negado. Redirecionando para /`);
-      return NextResponse.redirect(new URL('/', request.url));
+      console.log(`[DEBUG-BLOCK] Sem cookie. Redirecionando para /?redirect=ebook`);
+      const url = new URL('/', request.url);
+      url.searchParams.set('redirect', 'ebook');
+      return NextResponse.redirect(url);
     }
   }
 
