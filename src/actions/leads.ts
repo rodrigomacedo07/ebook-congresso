@@ -13,6 +13,17 @@ export async function captureLead(formData: FormData) {
   const rawWhatsapp = formData.get('whatsapp') as string || '';
   const perfil = formData.get('perfil') as string || '';
 
+    // 🔥 NOVO: UTMs
+  const utm_source = formData.get('utm_source') as string || '';
+  const utm_medium = formData.get('utm_medium') as string || '';
+  const utm_campaign = formData.get('utm_campaign') as string || '';
+
+  console.log('[DEBUG-ACTION] UTMs recebidas:', {
+    utm_source,
+    utm_medium,
+    utm_campaign
+  });
+
   // 1. LIMPEZA AVANÇADA (Sanitização)
   // Remove espaços duplos no meio do nome e aplica formatação (Ex: " jOãO   sIlVa " -> "João Silva")
   const cleanName = rawName
@@ -61,7 +72,10 @@ const { data, error } = await supabase
     nome: cleanName,
     email: cleanEmail,
     whatsapp: cleanWhatsapp,
-    perfil: perfil
+    perfil: perfil,
+    utm_source: utm_source && { utm_source },
+    utm_medium: utm_medium && { utm_medium },
+    utm_campaign: utm_campaign && { utm_campaign }
   }], {
     onConflict: 'email'
   })

@@ -17,8 +17,35 @@ export default function LandingPage() {
 
   useEffect(() => {
      console.log('RODOU useEffect');
+
     if (typeof window !== 'undefined') {
+
+     // 🔥 1. CAPTURA UTMs DA URL
+    const params = new URLSearchParams(window.location.search);
+
+    const utmSource = params.get('utm_source');
+    const utmMedium = params.get('utm_medium');
+    const utmCampaign = params.get('utm_campaign');
+
+    if (utmSource || utmMedium || utmCampaign) {
+      console.log('[DEBUG-UTM] Capturado da URL:', {
+        utmSource,
+        utmMedium,
+        utmCampaign
+      });
+    }
+
+    // 🔥 SALVA APENAS SE NÃO EXISTIR (FIRST TOUCH)
+    if (!sessionStorage.getItem('utm_source') && utmSource) {
+      sessionStorage.setItem('utm_source', utmSource);
+      sessionStorage.setItem('utm_medium', utmMedium || '');
+      sessionStorage.setItem('utm_campaign', utmCampaign || '');
+
+      console.log('[DEBUG-UTM] UTM salva (first touch)');
+    }
+      // 🔥 CONTROLE DE SESSÃO (SEMPRE EXECUTA)
       const leadId = localStorage.getItem('umami_lead_id');
+
       if (leadId) {
         setFormMode('email');
 
@@ -38,6 +65,20 @@ export default function LandingPage() {
     setErrorMsg('');
 
     const formData = new FormData(event.currentTarget);
+
+        // 🔥 INJETA UTMs NO PAYLOAD
+    if (typeof window !== 'undefined') {
+      formData.append('utm_source', sessionStorage.getItem('utm_source') || '');
+      formData.append('utm_medium', sessionStorage.getItem('utm_medium') || '');
+      formData.append('utm_campaign', sessionStorage.getItem('utm_campaign') || '');
+
+
+      console.log('[DEBUG-FRONT] UTMs enviadas:', {
+        utm_source: sessionStorage.getItem('utm_source'),
+        utm_medium: sessionStorage.getItem('utm_medium'),
+        utm_campaign: sessionStorage.getItem('utm_campaign'),
+      });
+    }
 
     if (formMode === 'email') {
 
