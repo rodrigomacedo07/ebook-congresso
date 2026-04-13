@@ -233,7 +233,7 @@ export default function EbookPage() {
             <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3">1.2 O Cérebro com TDAH: o Trânsito sem semáforo</h3>
             <div className="space-y-5 text-gray-700 leading-relaxed mb-8">
               <p>Muitos pais me perguntam: "Doutor, se ele consegue ficar horas no videogame, por que não consegue ficar dez minutos focado na aula?". A resposta está na forma como o trânsito dessa "cidade interna" é controlado.</p>
-              <p>No cérebro com TDAH, o moto do carro (que é o potencial da criança) costuma ser potente. O desafio está nos semáforos e nos freios. Para o trânsito fluir, o cérebro usa "guardas de trânsito" químicos (como a dopamina). No TDAH, esses guardas às vezes faltam ao trabalho ou se distraem.</p>
+              <p>No cérebro com TDAH, o motor do carro (que é o potencial da criança) costuma ser potente. O desafio está nos semáforos e nos freios. Para o trânsito fluir, o cérebro usa "guardas de trânsito" químicos (como a dopamina). No TDAH, esses guardas às vezes faltam ao trabalho ou se distraem.</p>
               <p>É por isso que o trânsito fica bagunçado: os sinais não abrem na hora de prestar atenção e o freio falha na hora de segurar um impulso. Quando a criança está no videogame, o jogo funciona como um guarda de trânsito muito eficiente, dando ordens claras e rápidas. Mas na escola ou em tarefas repetitivas, o guarda "some" e o trânsito trava. Não é falta de vontade da criança. É o sistema de sinalização da cidade que precisa de suporte para funcionar no tempo certo.</p>
             </div>
 
