@@ -670,6 +670,7 @@ export default function EbookPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {[
                       { nome: "Dr. Marcelo Masruha", arroba: "@dr.marcelomasruha", desc: "Neurologista Adulto e Infantil" },
+                      { nome: "Dra. Mariana Soffientini", arroba: "@neurologiapediatrica", desc: "Neuropediatria - Autismo e Desenvolvimento" },
                       { nome: "Dr. Paulo Liberalesso", arroba: "@pauloliberalesso", desc: "Neuropediatra e Neurocientista" },
                       { nome: "Dr. Thiago Castro", arroba: "@dr.thiagocastro", desc: "Autismo Baseado em Evidências" }
                     ].map((perfil, i) => (
