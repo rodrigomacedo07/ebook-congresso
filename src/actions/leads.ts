@@ -17,11 +17,14 @@ export async function captureLead(formData: FormData) {
   const utm_source = formData.get('utm_source') as string || '';
   const utm_medium = formData.get('utm_medium') as string || '';
   const utm_campaign = formData.get('utm_campaign') as string || '';
+  const utm_content = formData.get('utm_content') as string || '';
+
 
   console.log('[DEBUG-ACTION] UTMs recebidas:', {
     utm_source,
     utm_medium,
-    utm_campaign
+    utm_campaign,
+    utm_content
   });
 
   // 1. LIMPEZA AVANÇADA (Sanitização)
@@ -75,7 +78,8 @@ const { data, error } = await supabase
     perfil: perfil,
     utm_source: utm_source && { utm_source },
     utm_medium: utm_medium && { utm_medium },
-    utm_campaign: utm_campaign && { utm_campaign }
+    utm_campaign: utm_campaign && { utm_campaign },
+    utm_content: utm_content && { utm_content }
   }], {
     onConflict: 'email'
   })
