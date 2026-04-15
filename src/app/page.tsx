@@ -16,7 +16,9 @@ export default function LandingPage() {
   const [emailValue, setEmailValue] = useState('');
 
   useEffect(() => {
-     console.log('RODOU useEffect');
+    console.log('[DEBUG] URL COMPLETA:', window.location.href);
+    console.log('[DEBUG] SEARCH:', window.location.search);
+    console.log('RODOU useEffect');
 
     if (typeof window !== 'undefined') {
 
