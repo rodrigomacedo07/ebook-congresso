@@ -26,12 +26,14 @@ export default function LandingPage() {
     const utmSource = params.get('utm_source');
     const utmMedium = params.get('utm_medium');
     const utmCampaign = params.get('utm_campaign');
+    const utmContent = params.get('utm_content');
 
     if (utmSource || utmMedium || utmCampaign) {
       console.log('[DEBUG-UTM] Capturado da URL:', {
         utmSource,
         utmMedium,
-        utmCampaign
+        utmCampaign,
+        utmContent
       });
     }
 
@@ -40,6 +42,7 @@ export default function LandingPage() {
       sessionStorage.setItem('utm_source', utmSource);
       sessionStorage.setItem('utm_medium', utmMedium || '');
       sessionStorage.setItem('utm_campaign', utmCampaign || '');
+      sessionStorage.setItem('utm_content', utmContent || '');
 
       console.log('[DEBUG-UTM] UTM salva (first touch)');
     }
@@ -71,12 +74,14 @@ export default function LandingPage() {
       formData.append('utm_source', sessionStorage.getItem('utm_source') || '');
       formData.append('utm_medium', sessionStorage.getItem('utm_medium') || '');
       formData.append('utm_campaign', sessionStorage.getItem('utm_campaign') || '');
+      formData.append('utm_content', sessionStorage.getItem('utm_content') || '');
 
 
       console.log('[DEBUG-FRONT] UTMs enviadas:', {
         utm_source: sessionStorage.getItem('utm_source'),
         utm_medium: sessionStorage.getItem('utm_medium'),
         utm_campaign: sessionStorage.getItem('utm_campaign'),
+        utm_content: sessionStorage.getItem('utm_content'),
       });
     }
 
