@@ -3,6 +3,11 @@
 import { supabase } from '@/lib/supabase';
 import { cookies } from 'next/headers';
 
+function normalizeUTM(value: FormDataEntryValue | null): string | null {
+  if (!value || value === '') return null;
+  return String(value);
+}
+
 export async function captureLead(formData: FormData) {
   console.log('[DEBUG-ACTION] captureLead START');
 
@@ -14,10 +19,10 @@ export async function captureLead(formData: FormData) {
   const perfil = formData.get('perfil') as string || '';
 
     // 🔥 NOVO: UTMs
-  const utm_source = formData.get('utm_source') as string || '';
-  const utm_medium = formData.get('utm_medium') as string || '';
-  const utm_campaign = formData.get('utm_campaign') as string || '';
-  const utm_content = formData.get('utm_content') as string || '';
+  const utm_source = normalizeUTM(formData.get('utm_source'));
+  const utm_medium = normalizeUTM(formData.get('utm_medium'));
+  const utm_campaign = normalizeUTM(formData.get('utm_campaign'));
+  const utm_content = normalizeUTM(formData.get('utm_content'));
 
 
   console.log('[DEBUG-ACTION] UTMs recebidas:', {
@@ -76,10 +81,10 @@ const { data, error } = await supabase
     email: cleanEmail,
     whatsapp: cleanWhatsapp,
     perfil: perfil,
-    utm_source: utm_source && { utm_source },
-    utm_medium: utm_medium && { utm_medium },
-    utm_campaign: utm_campaign && { utm_campaign },
-    utm_content: utm_content && { utm_content }
+    utm_source: utm_source || null,
+    utm_medium: utm_medium || null,
+    utm_campaign: utm_campaign || null,
+    utm_content: utm_content || null,
   }], {
     onConflict: 'email'
   })
