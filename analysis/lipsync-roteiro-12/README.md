@@ -11,12 +11,39 @@ do roteiro 12 (`lv_0_20260827084309.mp4`, 78,04 s, 480×852, 25 fps, HEVC + AAC)
 |---|---|
 | Atraso medido | **+236 ms** (+5,90 quadros) |
 | IC 90% (bootstrap por blocos, n=40) | +189 ms a +280 ms |
-| Correção aplicada | −240 ms (−6 quadros) no áudio |
-| Resíduo após a correção | −40 ms (−1 quadro) |
+| Correção aplicada | **imagem atrasada 200 ms (5 quadros)** |
+| Resíduo, medido no arquivo renderizado | **+32 ms** |
 | Zona imperceptível (ITU-R BT.1359) | −45 ms a +125 ms |
 
-O valor original (+236 ms) está bem fora da tolerância; o resíduo (−40 ms) está
-dentro dela.
+## Atrasar a imagem, não adiantar o áudio
+
+A correção óbvia — puxar o áudio 240 ms para trás — **estraga o arquivo**. A
+fala começa em 0,12 s e já está em nível cheio (−19,7 dB) antes dos 240 ms:
+cortar a cabeça do áudio come ~120 ms da primeira palavra.
+
+A correção usada atrasa a imagem em vez disso, clonando o primeiro quadro por
+5 quadros (`tpad=start_mode=clone`). O áudio sai intacto — correlação de
+0,99998 com o original no primeiro segundo, sem clipping, ataque de fala ainda
+em 0,12 s. O cartão de abertura passa a durar 320 ms em vez de 120 ms, o que na
+prática melhora: 3 quadros era rápido demais para ler.
+
+Custo: exige recodificar o vídeo (quadros novos impedem `-c:v copy`). Feito em
+H.264 CRF 20, 2551 kb/s — acima da fonte (1605 kb/s HEVC).
+
+## Por que 5 quadros e não 6
+
+Ambos foram renderizados e medidos no arquivo final:
+
+| deslocamento | resíduo medido | avaliação |
+|---|---|---|
+| 6 quadros (240 ms) | −42 ms | colado na borda de −45 ms |
+| **5 quadros (200 ms)** | **+32 ms** | centralizado |
+
+A tolerância é assimétrica: o ouvido aceita bem o som chegando depois dos
+lábios (até +125 ms) e mal o som chegando antes (−45 ms). Com 6 quadros o
+resíduo cai do lado intolerante e na borda; com 5 fica no lado natural e com
+folga. Os dois resultados diferem em exatamente 1 quadro, o que confirma a
+consistência interna da medição.
 
 ## O deslocamento é constante — não há deriva
 
@@ -99,13 +126,20 @@ python3 regional2.py      # testa deriva ao longo do vídeo
 python3 verify_fix.py     # confere o arquivo corrigido
 ```
 
-Renderização da correção:
+Renderização da correção (atrasa a imagem 5 quadros, preserva o áudio):
 
 ```bash
 ffmpeg -i entrada.mp4 \
-  -filter_complex "[0:a]atrim=start=0.24,asetpts=N/SR/TB,apad=pad_dur=0.5[a]" \
-  -map 0:v -map "[a]" -t 78.04 -c:v copy -c:a aac -b:a 192k saida.mp4
+  -filter_complex "[0:v]tpad=start_duration=0.20:start_mode=clone,fps=25[v];\
+                   [0:a]apad=pad_dur=0.4[a]" \
+  -map "[v]" -map "[a]" -t 78.24 \
+  -c:v libx264 -preset slow -crf 20 -pix_fmt yuv420p -profile:v high \
+  -c:a aac -b:a 160k -ar 44100 -movflags +faststart saida.mp4
 ```
+
+`verify_final.py saida.mp4` refaz a medição inteira no arquivo gerado —
+re-extrai landmarks, cortes e áudio dele — em vez de assumir que a
+renderização fez o que foi pedido.
 
 `landmarks2.py` depende de `framediff.npy` (detecção de cortes por diferença
 média entre quadros consecutivos, limiar 39,13) — gerado na etapa de análise de
