@@ -2,10 +2,11 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { logReadingTime } from '@/actions/tracking';
-import { Menu, ChevronLeft, ChevronRight, CheckCircle2, X, Instagram } from 'lucide-react';
+import { Menu, ChevronLeft, ChevronRight, CheckCircle2, X } from 'lucide-react';
 import FeedbackForm from '@/components/ebook/FeedbackForm';
 import Image from 'next/image';
 import VersionBadge from '@/components/VersionBadge';
+import InstagramIcon from '@/components/icons/InstagramIcon';
 
 export default function EbookPage() {
   const [currentChapter, setCurrentChapter] = useState(0);
@@ -656,7 +657,7 @@ export default function EbookPage() {
             {/* NOVO BLOCO DE REFERÊNCIAS */}
             <div className="mt-12">
               <h3 className="text-xl font-bold text-[#0D2A4B] mt-8 mb-3 flex items-center gap-2">
-                <Instagram className="w-6 h-6 text-[#E1306C]" />
+                <InstagramIcon className="w-6 h-6 text-[#E1306C]" />
                 Recursos confiáveis no Brasil
               </h3>
               <p className="text-gray-700 leading-relaxed mb-8">
@@ -958,7 +959,7 @@ export default function EbookPage() {
                   }}
                   className="inline-flex items-center justify-center gap-2 bg-[#2E86C1] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#1A5F8C] transition-colors shadow-sm active:scale-95"
                 >
-                  <Instagram className="w-5 h-5 shrink-0" />
+                  <InstagramIcon className="w-5 h-5 shrink-0" />
                   Me siga
                 </a>
               </div>
@@ -1038,7 +1039,7 @@ export default function EbookPage() {
             }}
             className="flex items-center justify-center gap-2 w-full bg-linear-to-r from-[#833AB4] via-[#FD1D1D] to-[#F56040] text-white py-3.5 rounded-lg font-bold shadow-sm hover:opacity-90 transition-opacity active:scale-95"
           >
-            <Instagram className="w-5 h-5" />
+            <InstagramIcon className="w-5 h-5" />
             Siga o Dr. Mauro Reis
           </a>
         </div>
