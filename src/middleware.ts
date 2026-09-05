@@ -4,34 +4,25 @@ import type { NextRequest } from 'next/server'
 export function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
   const hasAccess = request.cookies.has('ebook_access_granted');
-  const userAgent = request.headers.get('user-agent') || 'desconhecido';
 
-  // ---> NOSSO ESPIÃO SILENCIOSO (Aparece só na Vercel) <---
-  // Filtramos para logar apenas as páginas principais, ignorando imagens e scripts
-  if (path === '/' || path.startsWith('/ebook')) {
-    console.log(`[DEBUG-AUTH] URL: ${path} | Cookie Existe? ${hasAccess} | Navegador: ${userAgent}`);
+  // REGRA 1: Proteção do e-book
+  if (path.startsWith('/ebook') && !hasAccess) {
+    const url = new URL('/acesso', request.url);
+    url.searchParams.set('redirect', 'ebook');
+    return NextResponse.redirect(url);
   }
 
-  // REGRA 1: Proteção do Produto (com fallback permitido)
-  if (path.startsWith('/ebook')) {
-    if (!hasAccess) {
-      console.log(`[DEBUG-BLOCK] Sem cookie. Redirecionando para /?redirect=ebook`);
-      const url = new URL('/', request.url);
-      url.searchParams.set('redirect', 'ebook');
-      return NextResponse.redirect(url);
-    }
+  // REGRA 2: Fricção zero — quem já tem acesso não vê o formulário de novo
+  if (path === '/acesso' && hasAccess) {
+    return NextResponse.redirect(new URL('/ebook', request.url));
   }
 
-  // REGRA 2: Fricção Zero
-  if (path === '/') {
-    if (hasAccess) {
-      return NextResponse.redirect(new URL('/ebook', request.url));
-    }
-  }
-
+  // RAIZ: sempre segue. Nunca redireciona.
+  // Manter a Regra 2 disparando em '/' cuspiria todo lead com cookie
+  // direto no e-book, sem nunca ver o hub.
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ['/', '/ebook/:path*'],
+  matcher: ['/', '/acesso', '/ebook/:path*'],
 }
