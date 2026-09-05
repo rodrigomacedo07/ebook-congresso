@@ -16,38 +16,10 @@ export default function LandingPage() {
   const [emailValue, setEmailValue] = useState('');
 
   useEffect(() => {
-    console.log('[DEBUG] URL COMPLETA:', window.location.href);
-    console.log('[DEBUG] SEARCH:', window.location.search);
     console.log('RODOU useEffect');
 
     if (typeof window !== 'undefined') {
 
-     // 🔥 1. CAPTURA UTMs DA URL
-    const params = new URLSearchParams(window.location.search);
-
-    const utmSource = params.get('utm_source');
-    const utmMedium = params.get('utm_medium');
-    const utmCampaign = params.get('utm_campaign');
-    const utmContent = params.get('utm_content');
-
-    if (utmSource || utmMedium || utmCampaign) {
-      console.log('[DEBUG-UTM] Capturado da URL:', {
-        utmSource,
-        utmMedium,
-        utmCampaign,
-        utmContent
-      });
-    }
-
-    // 🔥 SALVA APENAS SE NÃO EXISTIR (FIRST TOUCH)
-    if (!sessionStorage.getItem('utm_source') && utmSource) {
-      sessionStorage.setItem('utm_source', utmSource);
-      sessionStorage.setItem('utm_medium', utmMedium || '');
-      sessionStorage.setItem('utm_campaign', utmCampaign || '');
-      sessionStorage.setItem('utm_content', utmContent || '');
-
-      console.log('[DEBUG-UTM] UTM salva (first touch)');
-    }
       // 🔥 CONTROLE DE SESSÃO (SEMPRE EXECUTA)
       const leadId = localStorage.getItem('umami_lead_id');
 
