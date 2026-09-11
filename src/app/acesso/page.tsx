@@ -41,136 +41,153 @@ export default function LandingPage() {
     setIsLoading(true);
     setErrorMsg('');
 
-    const formData = new FormData(event.currentTarget);
+    // O modo pode mudar durante o envio (notFound joga para o form
+    // completo), entao guardamos o modo de entrada para a mensagem de erro.
+    const modoNoEnvio = formMode;
 
-        // 🔥 INJETA UTMs NO PAYLOAD
-    if (typeof window !== 'undefined') {
-      formData.append('utm_source', sessionStorage.getItem('utm_source') || '');
-      formData.append('utm_medium', sessionStorage.getItem('utm_medium') || '');
-      formData.append('utm_campaign', sessionStorage.getItem('utm_campaign') || '');
-      formData.append('utm_content', sessionStorage.getItem('utm_content') || '');
+    try {
+      const formData = new FormData(event.currentTarget);
+
+          // 🔥 INJETA UTMs NO PAYLOAD
+      if (typeof window !== 'undefined') {
+        formData.append('utm_source', sessionStorage.getItem('utm_source') || '');
+        formData.append('utm_medium', sessionStorage.getItem('utm_medium') || '');
+        formData.append('utm_campaign', sessionStorage.getItem('utm_campaign') || '');
+        formData.append('utm_content', sessionStorage.getItem('utm_content') || '');
 
 
-      console.log('[DEBUG-FRONT] UTMs enviadas:', {
-        utm_source: sessionStorage.getItem('utm_source'),
-        utm_medium: sessionStorage.getItem('utm_medium'),
-        utm_campaign: sessionStorage.getItem('utm_campaign'),
-        utm_content: sessionStorage.getItem('utm_content'),
-      });
-    }
+        console.log('[DEBUG-FRONT] UTMs enviadas:', {
+          utm_source: sessionStorage.getItem('utm_source'),
+          utm_medium: sessionStorage.getItem('utm_medium'),
+          utm_campaign: sessionStorage.getItem('utm_campaign'),
+          utm_content: sessionStorage.getItem('utm_content'),
+        });
+      }
 
-    if (formMode === 'email') {
+      if (formMode === 'email') {
 
-      console.log('[DEBUG-FRONT] Modo EMAIL acionado');
+        console.log('[DEBUG-FRONT] Modo EMAIL acionado');
 
-      const email = (formData.get('email') as string)?.trim();
+        const email = (formData.get('email') as string)?.trim();
       
-      console.log('[DEBUG-FRONT] Email digitado:', email);
+        console.log('[DEBUG-FRONT] Email digitado:', email);
 
-      if (!email) {
-        setErrorMsg('Digite seu e-mail para continuar.');
+        if (!email) {
+          setErrorMsg('Digite seu e-mail para continuar.');
+          setIsLoading(false);
+          return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          setErrorMsg('Insira um e-mail válido (ex: nome@email.com).');
+          setIsLoading(false);
+          return;
+        }
+
+        const result = await recoverAccessByEmail(formData);
+
+        console.log('[DEBUG-FRONT] Resultado recoverAccessByEmail:', result);
+
+        if (result.success) {
+
+            console.log('[DEBUG-FRONT] Detalhe do erro:', result.debug);
+
+          if (typeof window !== 'undefined') {
+            localStorage.setItem('umami_lead_id', result.lead_id as string);
+            localStorage.setItem('umami_lead_perfil', result.perfil as string);
+          }
+
+          router.push('/ebook');
+          return;
+        }
+
+        if (result.notFound) {
+
+          console.log('[DEBUG-FRONT] Email NÃO encontrado → indo para form completo');
+
+          setErrorMsg('E-mail não encontrado. Preencha seus dados abaixo para liberar o acesso.');
+          setFormMode('full');
+          setIsLoading(false);
+
+          setTimeout(() => {
+            const errorEl = document.getElementById('form-error');
+            errorEl?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 100);
+
+          return;
+        }
+        console.log('[DEBUG-FRONT] Erro genérico no recoverAccessByEmail');
+      
+        setErrorMsg('Erro ao validar acesso. Tente novamente.');
+        setIsLoading(false);
+        return;
+      }
+
+      // 🔽 FULL FORM SÓ COMEÇA AQUI
+      const currentNome = (formData.get('nome') as string) || '';
+      const currentEmail = (formData.get('email') as string) || '';
+      const currentWhatsapp = (formData.get('whatsapp') as string) || '';
+
+
+
+      // ==========================================
+      // VALIDAÇÃO FRONTEND PRECISA E EXATA
+      // ==========================================
+    
+      if (currentNome.trim().split(/\s+/).length < 2) {
+        setErrorMsg('Digite pelo menos nome e sobrenome.');
         setIsLoading(false);
         return;
       }
 
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
+      if (!emailRegex.test(currentEmail.trim())) {
         setErrorMsg('Insira um e-mail válido (ex: nome@email.com).');
         setIsLoading(false);
         return;
       }
 
-      const result = await recoverAccessByEmail(formData);
+      const digitsOnly = currentWhatsapp.replace(/\D/g, '');
+      if (digitsOnly.length !== 11) {
+        setErrorMsg('Digite um WhatsApp válido com DDD (ex: (21) 99999-9999).');
+        setIsLoading(false);
+        return;
+      }
 
-      console.log('[DEBUG-FRONT] Resultado recoverAccessByEmail:', result);
+      // ==========================================
+      // ENVIO PARA O SERVIDOR E ANALYTICS
+      // ==========================================
+
+      const result = await captureLead(formData);
 
       if (result.success) {
-
-          console.log('[DEBUG-FRONT] Detalhe do erro:', result.debug);
-
+        setEmailValue('');
         if (typeof window !== 'undefined') {
           localStorage.setItem('umami_lead_id', result.lead_id as string);
           localStorage.setItem('umami_lead_perfil', result.perfil as string);
+          if ((window as any).umami) {
+            (window as any).umami.track('lead_captured');
+          }
         }
-
-        router.push('/ebook');
-        return;
-      }
-
-      if (result.notFound) {
-
-        console.log('[DEBUG-FRONT] Email NÃO encontrado → indo para form completo');
-
-        setErrorMsg('E-mail não encontrado. Preencha seus dados abaixo para liberar o acesso.');
-        setFormMode('full');
-        setIsLoading(false);
 
         setTimeout(() => {
-          const errorEl = document.getElementById('form-error');
-          errorEl?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 100);
-
-        return;
+          router.push('/ebook');
+        }, 300);
+      } else {
+        setErrorMsg(result.message || 'Ocorreu um erro.');
+        setIsLoading(false);
       }
-      console.log('[DEBUG-FRONT] Erro genérico no recoverAccessByEmail');
-      
-      setErrorMsg('Erro ao validar acesso. Tente novamente.');
-      setIsLoading(false);
-      return;
-    }
-
-    // 🔽 FULL FORM SÓ COMEÇA AQUI
-    const currentNome = (formData.get('nome') as string) || '';
-    const currentEmail = (formData.get('email') as string) || '';
-    const currentWhatsapp = (formData.get('whatsapp') as string) || '';
-
-
-
-    // ==========================================
-    // VALIDAÇÃO FRONTEND PRECISA E EXATA
-    // ==========================================
-    
-    if (currentNome.trim().split(/\s+/).length < 2) {
-      setErrorMsg('Digite pelo menos nome e sobrenome.');
-      setIsLoading(false);
-      return;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(currentEmail.trim())) {
-      setErrorMsg('Insira um e-mail válido (ex: nome@email.com).');
-      setIsLoading(false);
-      return;
-    }
-
-    const digitsOnly = currentWhatsapp.replace(/\D/g, '');
-    if (digitsOnly.length !== 11) {
-      setErrorMsg('Digite um WhatsApp válido com DDD (ex: (21) 99999-9999).');
-      setIsLoading(false);
-      return;
-    }
-
-    // ==========================================
-    // ENVIO PARA O SERVIDOR E ANALYTICS
-    // ==========================================
-
-    const result = await captureLead(formData);
-
-    if (result.success) {
-      setEmailValue('');
-      if (typeof window !== 'undefined') {
-        localStorage.setItem('umami_lead_id', result.lead_id as string);
-        localStorage.setItem('umami_lead_perfil', result.perfil as string);
-        if ((window as any).umami) {
-          (window as any).umami.track('lead_captured');
-        }
-      }
-
-      setTimeout(() => {
-        router.push('/ebook');
-      }, 300);
-    } else {
-      setErrorMsg(result.message || 'Ocorreu um erro.');
+    } catch (erro) {
+      // Sem este catch, qualquer falha do Server Action deixa isLoading
+      // em true para sempre: o botao congela em "Validando..." sem
+      // mensagem nenhuma, que foi exatamente o sintoma em producao.
+      console.error('[DEBUG-FRONT] Falha inesperada no envio:', erro);
+      setErrorMsg(
+        modoNoEnvio === 'email'
+          ? 'Erro ao validar acesso. Tente novamente.'
+          : 'Ocorreu um erro.'
+      );
       setIsLoading(false);
     }
   }
