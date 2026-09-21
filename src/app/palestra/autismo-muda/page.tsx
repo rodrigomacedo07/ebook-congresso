@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "Dr. Mauro Reis",
     images: [
       {
-        url: "/og-image.png?v=2",
+        url: "/og/palestra-autismo-muda.jpg",
         width: 1200,
         height: 630,
         alt: "Autismo muda? - apresentação do Dr. Mauro Reis",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: TITULO,
     description: DESCRICAO,
-    images: ["/og-image.png?v=2"],
+    images: ["/og/palestra-autismo-muda.jpg"],
   },
 };
 

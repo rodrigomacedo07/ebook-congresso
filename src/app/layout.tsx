@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     siteName: "Dr. Mauro Reis",
     images: [
       {
-        url: "/og-image.png?v=2",
+        url: "/og/lp.jpg",
         width: 1200,
         height: 630,
         alt: "Dr. Mauro Reis - Especialista em TEA e TDAH",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title: "Dr. Mauro Reis | TEA e TDAH",
     description:
       "Atendimento especializado para crianças com TEA e TDAH. Agende sua consulta.",
-    images: ["/og-image.png?v=2"],
+    images: ["/og/lp.jpg"],
   },
 };
 
