@@ -1,6 +1,43 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Download } from "lucide-react";
+
+const TITULO = "Autismo muda? | Dr. Mauro Reis";
+const DESCRICAO =
+  "O que influencia a evolução de uma criança no espectro. Apresentação gratuita do Dr. Mauro Reis sobre fatores de prognóstico no autismo, para famílias e profissionais.";
+
+// O metadataBase do layout raiz ja aponta para www.drmauroreis.com.br.
+//
+// O openGraph precisa ser declarado inteiro: no Next o objeto do filho
+// substitui o do pai, nao se funde com ele. Sem declarar a imagem aqui, a
+// rota ficaria sem nenhuma, em vez de herdar a da LP.
+export const metadata: Metadata = {
+  title: TITULO,
+  description: DESCRICAO,
+  openGraph: {
+    title: TITULO,
+    description: DESCRICAO,
+    url: "/palestra/autismo-muda",
+    siteName: "Dr. Mauro Reis",
+    images: [
+      {
+        url: "/og-image.png?v=2",
+        width: 1200,
+        height: 630,
+        alt: "Autismo muda? - apresentacao do Dr. Mauro Reis",
+      },
+    ],
+    locale: "pt_BR",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITULO,
+    description: DESCRICAO,
+    images: ["/og-image.png?v=2"],
+  },
+};
 
 // Pagina publica da palestra. Sem cookie, sem formulario, sem Supabase e
 // fora do matcher do middleware, por decisao: a palestra nao exige
