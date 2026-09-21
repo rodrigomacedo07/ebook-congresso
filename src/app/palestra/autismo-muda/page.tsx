@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Download } from "lucide-react";
+import BotaoDownload from "@/components/palestra/BotaoDownload";
+import LinkSobreMedico from "@/components/palestra/LinkSobreMedico";
 
 const TITULO = "Autismo muda? | Dr. Mauro Reis";
 const DESCRICAO =
@@ -73,14 +74,7 @@ export default function PalestraAutismoMuda() {
             É a pergunta que quase toda mãe faz depois do diagnóstico. Esta apresentação reúne o que se sabe hoje sobre o que influencia a evolução de uma criança no espectro.
           </p>
 
-          <a
-            href="/autismo-muda.pdf"
-            download="Autismo-Muda-Dr-Mauro-Reis.pdf"
-            className="w-full max-w-md inline-flex items-center justify-center gap-3 bg-[#2E86C1] hover:bg-[#1B4F72] text-white font-bold py-4 px-6 rounded-xl shadow-md transition-all active:scale-95"
-          >
-            <Download className="w-6 h-6 shrink-0" />
-            <span>Baixar a apresentação</span>
-          </a>
+          <BotaoDownload />
 
           <p className="text-sm text-gray-500 mt-4">
             PDF, 48 páginas. Download gratuito, sem cadastro.
@@ -133,12 +127,7 @@ export default function PalestraAutismoMuda() {
 
           <p className="text-sm text-gray-500">CRM 52 0115265-3</p>
 
-          <Link
-            href="/"
-            className="inline-flex items-center justify-center text-[#2E86C1] hover:text-[#1B4F72] font-bold underline underline-offset-4 transition-colors"
-          >
-            Conheça o trabalho do Dr. Mauro Reis
-          </Link>
+          <LinkSobreMedico />
         </div>
       </section>
 
