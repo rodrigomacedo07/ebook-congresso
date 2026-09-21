@@ -89,6 +89,9 @@ export default function PalestraAutismoMuda() {
       {/* BLOCO 2 — o texto que sustenta a busca organica */}
       <section className="w-full px-6 py-12 md:py-16">
         <div className="max-w-2xl mx-auto flex flex-col gap-5 text-gray-700 text-base md:text-lg leading-relaxed">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0D2A4B] mb-1">
+            O que influencia a evolução de uma criança autista
+          </h2>
           <p>
             Quando o diagnóstico chega, vem junto uma pergunta que poucos conseguem responder com clareza: e agora, o que esperar?
           </p>
