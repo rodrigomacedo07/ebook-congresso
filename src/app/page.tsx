@@ -199,7 +199,7 @@ export default function LPDrmauroReis() {
       <footer className="w-full bg-[#0D2A4B] text-white py-10 mt-16 text-center">
         <div className="max-w-3xl mx-auto px-6 flex flex-col items-center gap-2">
           <p className="font-bold text-xl">Dr. Mauro Reis</p>
-          <p className="text-[#A9CCE3] text-sm mb-2">CRM RJ 1152653</p>
+          <p className="text-[#A9CCE3] text-sm mb-2">CRM 52 0115265-3</p>
           
           {/* BLOCO DE ENDEREÇO */}
           <div className="bg-[#1B4F72]/50 p-4 rounded-xl flex flex-col items-center gap-1 my-4 w-full max-w-sm border border-white/5">
