@@ -103,14 +103,26 @@ export default function PalestraAutismoMuda() {
       {/* BLOCO 3 — quem assina, e a saida para a LP */}
       <section className="w-full px-6 pb-16">
         <div className="max-w-2xl mx-auto flex flex-col items-center text-center gap-5">
-          <Image
-            src="/foto_perfil_dr.png"
-            alt="Dr. Mauro Reis"
-            width={128}
-            height={128}
-            className="w-32 h-32 object-contain"
-            style={{ width: 'auto', height: 'auto' }}
-          />
+          {/* Mesmo tratamento da foto na LP: selo circular com sombra
+              combinada, e a imagem em pop-out alinhada pela base. Classes
+              replicadas da LP, nao recriadas. */}
+          <div className="relative w-40 h-40 mx-auto mt-8 mb-8">
+
+            {/* 1. O SELO CIRCULAR (FUNDO DO AVATAR) */}
+            <div className="absolute inset-0 rounded-full bg-white border-4 border-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.3),0_0_40px_10px_rgba(46,134,193,0.35)] z-0"></div>
+
+            {/* 2. A IMAGEM DO MÉDICO (POP-OUT) */}
+            <div className="absolute bottom-0 left-0 w-full z-10 flex justify-center">
+              <Image
+                src="/foto_perfil_dr.png"
+                alt="Dr. Mauro Reis"
+                width={160}
+                height={210}
+                className="object-cover rounded-b-full"
+                style={{ objectPosition: 'bottom', width: 'auto', height: 'auto' }}
+              />
+            </div>
+          </div>
 
           <h2 className="text-2xl md:text-3xl font-bold">
             Sobre o Dr. Mauro Reis
@@ -118,10 +130,7 @@ export default function PalestraAutismoMuda() {
 
           <div className="flex flex-col gap-4 text-gray-700 text-base md:text-lg leading-relaxed">
             <p>
-              Sou médico e pai atípico. Meu filho tem 7 anos e é autista, então conheço os dois lados dessa conversa: o da pessoa que explica o diagnóstico e o da pessoa que recebeu um.
-            </p>
-            <p>
-              Atendo em Nova Iguaçu e por telemedicina em todo o Brasil.
+              Sou médico e pai atípico, então conheço os dois lados dessa conversa: o de quem explica o diagnóstico e o de quem o recebe. Sou palestrante e atendo em Nova Iguaçu e por telemedicina em todo o Brasil.
             </p>
           </div>
 
