@@ -5,6 +5,7 @@ import { MessageCircle, BookOpen, ChevronRight, ChevronDown, X, Video } from "lu
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { trackEvent } from "@/lib/analytics";
+import Rodape from "@/components/Rodape";
 
 export default function LPDrmauroReis() {
 
@@ -195,29 +196,7 @@ export default function LPDrmauroReis() {
       </div>
 
 
-      {/* FOOTER INSTITUCIONAL */}
-      <footer className="w-full bg-[#0D2A4B] text-white py-10 mt-16 text-center">
-        <div className="max-w-3xl mx-auto px-6 flex flex-col items-center gap-2">
-          <p className="font-bold text-xl">Dr. Mauro Reis</p>
-          <p className="text-[#A9CCE3] text-sm mb-2">CRM 52 0115265-3</p>
-          
-          {/* BLOCO DE ENDEREÇO */}
-          <div className="bg-[#1B4F72]/50 p-4 rounded-xl flex flex-col items-center gap-1 my-4 w-full max-w-sm border border-white/5">
-            <span className="font-semibold text-white tracking-wide">Le Monde Office Life</span>
-            <span className="text-gray-300 text-sm">Av. Dr. Mario Guimarães, 428 - Sala 915</span>
-            <span className="text-gray-300 text-sm">Centro, Nova Iguaçu - RJ</span>
-          </div>
-
-          <div className="h-px w-full max-w-md bg-white/10 my-4"></div>
-          
-          <p className="text-xs text-gray-400">
-            © {new Date().getFullYear()} Dr. Mauro Reis. Todos os direitos reservados.
-          </p>
-          <p className="text-[10px] text-gray-500 mt-1">
-            Desenvolvido por M7 Partners
-          </p>
-        </div>
-      </footer>
+      <Rodape margemSuperior="mt-16" />
 
 
 
