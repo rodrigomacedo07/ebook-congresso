@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         url: "/og-image.png?v=2",
         width: 1200,
         height: 630,
-        alt: "Autismo muda? - apresentacao do Dr. Mauro Reis",
+        alt: "Autismo muda? - apresentação do Dr. Mauro Reis",
       },
     ],
     locale: "pt_BR",
@@ -51,7 +51,7 @@ export default function PalestraAutismoMuda() {
       {/* TOPO — logo discreto, unica saida no alto */}
       <header className="w-full shrink-0">
         <div className="max-w-3xl mx-auto px-6 py-4">
-          <Link href="/" aria-label="Ir para a pagina inicial do Dr. Mauro Reis" className="inline-block">
+          <Link href="/" aria-label="Ir para a página inicial do Dr. Mauro Reis" className="inline-block">
             <Image
               src="/logo.png"
               alt="Dr. Mauro Reis"
