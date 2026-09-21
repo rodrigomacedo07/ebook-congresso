@@ -4,12 +4,7 @@ import Image from "next/image";
 import { MessageCircle, BookOpen, ChevronRight, ChevronDown, X, Video } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-
-const trackEvent = (name: string, params?: Record<string, any>) => {
-  if (typeof window !== "undefined") {
-    window.gtag?.('event', name, params);
-  }
-};
+import { trackEvent } from "@/lib/analytics";
 
 export default function LPDrmauroReis() {
 
