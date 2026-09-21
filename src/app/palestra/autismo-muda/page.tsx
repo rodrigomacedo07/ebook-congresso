@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import BotaoDownload from "@/components/palestra/BotaoDownload";
 import LinkSobreMedico from "@/components/palestra/LinkSobreMedico";
+import LequeSlides from "@/components/palestra/LequeSlides";
 import Rodape from "@/components/Rodape";
 
 const TITULO = "Autismo muda? | Dr. Mauro Reis";
@@ -80,6 +81,8 @@ export default function PalestraAutismoMuda() {
           <p className="text-sm text-gray-500 mt-4">
             PDF, 48 páginas. Download gratuito, sem cadastro.
           </p>
+
+          <LequeSlides />
         </div>
       </section>
 
